@@ -1,0 +1,1 @@
+CREATE VIEW mart_owned_status_review_v1 AS SELECT c.GameKey, c.GameID, c.GameTitle, c.final_recommendation_score, c.playability_status, c.recommendation_status FROM mart_recommendation_context_v1 AS c WHERE (c.recommendation_context = 'Owned / Play Status Unknown') ORDER BY c.final_recommendation_score DESC NULLS LAST;
