@@ -1,0 +1,1 @@
+CREATE VIEW map_owned_flag AS SELECT * FROM (SELECT * FROM (VALUES ('Y', CAST('t' AS BOOLEAN)), ('N', CAST('f' AS BOOLEAN)), ('true', CAST('t' AS BOOLEAN)), ('false', CAST('f' AS BOOLEAN))) AS valueslist) AS t(raw_value, canonical_value);

@@ -1,0 +1,1 @@
+CREATE VIEW map_play_status AS SELECT * FROM (SELECT * FROM (VALUES ('Unplayed', 'Unplayed'), ('In-Progress', 'In Progress'), ('Completed', 'Completed')) AS valueslist) AS t(raw_value, canonical_value);

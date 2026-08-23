@@ -1,0 +1,1 @@
+CREATE TABLE RatingSource(RatingSourceID INTEGER PRIMARY KEY, RatingSourceName VARCHAR NOT NULL UNIQUE);

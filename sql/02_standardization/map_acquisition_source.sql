@@ -1,0 +1,1 @@
+CREATE VIEW map_acquisition_source AS SELECT * FROM (SELECT * FROM (VALUES ('Digital Download', 'Digital Download'), ('Download', 'Digital Download'), ('Physical Media', 'Physical Media'), ('Physical', 'Physical Media'), ('Playstation Plus', 'PlayStation Plus'), ('PS+ Stream', 'PlayStation Plus'), ('ROM', 'ROM')) AS valueslist) AS t(raw_value, canonical_value);

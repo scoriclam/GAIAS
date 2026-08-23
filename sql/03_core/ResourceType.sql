@@ -1,0 +1,1 @@
+CREATE TABLE ResourceType(ResourceTypeID INTEGER PRIMARY KEY, ResourceTypeName VARCHAR NOT NULL UNIQUE);

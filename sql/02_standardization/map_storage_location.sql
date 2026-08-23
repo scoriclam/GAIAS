@@ -1,0 +1,1 @@
+CREATE VIEW map_storage_location AS SELECT * FROM (SELECT * FROM (VALUES ('Drive 1', 'Drive 1'), ('Drive 2', 'Drive 2'), ('Drive 3', 'Drive 3'), ('Drive 4', 'Drive 4'), ('Extended Storage', 'Extended Storage'), ('SSD', 'SSD'), ('Online Stream', 'Online Stream')) AS valueslist) AS t(raw_value, canonical_value);
