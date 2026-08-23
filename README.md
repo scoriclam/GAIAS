@@ -30,8 +30,16 @@ including:
 
 The current data architecture follows this flow:
 
-`Raw Source Data → Staging → Standardization → Core Relational Model 
-→ Dimensional Model → Analytical Marts → Recommendation Engine`
+```mermaid
+flowchart TD
+    A[Raw Source Data] --> B[Staging]
+    B --> C[Standardization]
+    C --> D[Core Relational Model]
+    D --> E[Dimensional Model]
+    E --> F[Analytical Marts]
+    F --> G[Recommendation Engine]
+    G --> H[Validation / Reporting]
+```
 
 ## Technology Stack
 
