@@ -1,0 +1,1 @@
+CREATE TABLE PlayActivity(PlayActivityID INTEGER PRIMARY KEY, UserGameRecordID INTEGER NOT NULL, PlayStatusID INTEGER NOT NULL, CompletionDate DATE, LastPlayedDate DATE, FOREIGN KEY (UserGameRecordID) REFERENCES UserGameRecord(UserGameRecordID), FOREIGN KEY (PlayStatusID) REFERENCES PlayStatus(PlayStatusID), UNIQUE(UserGameRecordID));

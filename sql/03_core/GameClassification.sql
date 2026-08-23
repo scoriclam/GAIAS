@@ -1,0 +1,1 @@
+CREATE TABLE GameClassification(GameClassificationID INTEGER PRIMARY KEY, ClassificationType VARCHAR NOT NULL, ClassificationValue VARCHAR NOT NULL, SourceValue VARCHAR, ClassificationDescription VARCHAR, UNIQUE(ClassificationType, ClassificationValue));

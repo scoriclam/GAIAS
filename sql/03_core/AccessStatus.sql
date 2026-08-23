@@ -1,0 +1,1 @@
+CREATE TABLE AccessStatus(AccessStatusID INTEGER PRIMARY KEY, AccessStatusName VARCHAR NOT NULL UNIQUE);

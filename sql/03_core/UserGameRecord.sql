@@ -1,0 +1,1 @@
+CREATE TABLE UserGameRecord(UserGameRecordID INTEGER PRIMARY KEY, GameID INTEGER NOT NULL, WishlistFlag BOOLEAN, WishlistDate DATE, "Comments" VARCHAR, FOREIGN KEY (GameID) REFERENCES Game(GameID), UNIQUE(GameID));

@@ -1,0 +1,1 @@
+CREATE TABLE GameResource(GameResourceID INTEGER PRIMARY KEY, GameID INTEGER NOT NULL, ResourceTypeID INTEGER NOT NULL, AvailableFlag BOOLEAN NOT NULL, FOREIGN KEY (GameID) REFERENCES Game(GameID), FOREIGN KEY (ResourceTypeID) REFERENCES ResourceType(ResourceTypeID), UNIQUE(GameID, ResourceTypeID));

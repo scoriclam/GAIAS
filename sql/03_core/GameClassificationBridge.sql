@@ -1,0 +1,1 @@
+CREATE TABLE GameClassificationBridge(GameID INTEGER, GameClassificationID INTEGER, PRIMARY KEY(GameID, GameClassificationID), FOREIGN KEY (GameID) REFERENCES Game(GameID), FOREIGN KEY (GameClassificationID) REFERENCES GameClassification(GameClassificationID));
