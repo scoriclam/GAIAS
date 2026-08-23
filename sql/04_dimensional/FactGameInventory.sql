@@ -1,0 +1,1 @@
+CREATE TABLE FactGameInventory(GameInventoryKey INTEGER PRIMARY KEY, GameKey INTEGER NOT NULL, PlatformKey INTEGER NOT NULL, ReleaseDateKey INTEGER, GameCount INTEGER NOT NULL, FileSizeGB DECIMAL(10,2));

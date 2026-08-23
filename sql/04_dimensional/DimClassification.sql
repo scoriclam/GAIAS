@@ -1,0 +1,1 @@
+CREATE TABLE DimClassification(ClassificationKey INTEGER PRIMARY KEY, GameClassificationID INTEGER NOT NULL UNIQUE, ClassificationType VARCHAR NOT NULL, ClassificationValue VARCHAR NOT NULL, ClassificationDescription VARCHAR);

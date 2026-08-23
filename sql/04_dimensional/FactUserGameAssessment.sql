@@ -1,0 +1,1 @@
+CREATE TABLE FactUserGameAssessment(UserGameAssessmentKey INTEGER PRIMARY KEY, GameKey INTEGER NOT NULL, AssessmentCount INTEGER NOT NULL, DifficultyScore DECIMAL(3,2), BaseLengthHours DECIMAL(8,2), CompletionHours DECIMAL(8,2), PersonalRating DECIMAL(4,2), CuratedUserScore DECIMAL(4,2));

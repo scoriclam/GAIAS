@@ -1,0 +1,1 @@
+CREATE TABLE FactPlayActivity(PlayActivityKey INTEGER PRIMARY KEY, GameKey INTEGER NOT NULL, PlayStatusKey INTEGER NOT NULL, CompletionDateKey INTEGER, LastPlayedDateKey INTEGER, PlayActivityCount INTEGER NOT NULL, InProgressCount INTEGER NOT NULL, CompletedCount INTEGER NOT NULL, UnplayedCount INTEGER NOT NULL);

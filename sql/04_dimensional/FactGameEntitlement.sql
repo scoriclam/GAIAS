@@ -1,0 +1,1 @@
+CREATE TABLE FactGameEntitlement(GameEntitlementKey INTEGER PRIMARY KEY, GameKey INTEGER NOT NULL, PlatformKey INTEGER, AcquisitionSourceKey INTEGER NOT NULL, AccessStatusKey INTEGER NOT NULL, EntitlementCount INTEGER NOT NULL, OwnedGameCount INTEGER NOT NULL, StorageLocation VARCHAR, OrganizationFolder VARCHAR);
