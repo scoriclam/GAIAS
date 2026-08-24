@@ -1,3 +1,4 @@
 # GAIAS local files excluded from Git
 .DS_Store
 gaias.duckdb
+.venv/
