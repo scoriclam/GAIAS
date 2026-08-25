@@ -44,3 +44,9 @@ GAIASGameID,PlatformCode,DeferReason
 1554,PS5,IGDB Replaced currently lists Xbox and PC platforms but not PlayStation 5; source platform requires review
 1529,PS4,Ratchet and Clank Up Your Arsenal has no PS4-native IGDB record and acquisition source is Unknown; defer rather than infer PS2 or PS3 legacy lineage
 1538,PS5,IGDB contains duplicate modern Red Dead Redemption records 260735 and 260737 with effectively identical PS4 and PS5 release metadata; defer until a reliable discriminator is available
+1657,PS5,IGDB Samson currently lists only PC and provides no reliable PlayStation 5 match; defer until platform metadata changes
+1668,PS4,No reliable IGDB match for Schedule I Drug Empire was identified and several similarly named PlayStation titles exist; defer rather than infer identity
+1689,PS4,IGDB Shadow Gambit The Cursed Crew currently lists PlayStation 5 but not PlayStation 4; source platform requires review
+1747,PS5,IGDB Sky Children of the Light currently lists PlayStation 4 but not PlayStation 5; source platform requires review
+1767,PS4,IGDB Season Pass Edition record is Xbox-only while the base Sniper Ghost Warrior 3 supports PS4; defer to preserve edition identity
+1633,PS4,IGDB has distinct 2016 and 2024 PlayStation 4 Siren release lineages and GAIAS acquisition source is Unknown; defer rather than choose arbitrarily

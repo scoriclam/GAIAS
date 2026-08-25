@@ -114,3 +114,18 @@ GAIASGameID,PlatformCode,IGDBID,IGDBName,OverrideReason
 1530,PS4,254579,Ratchet: Deadlocked,GAIAS PlayStation Plus entitlement corresponds to the PlayStation 3 legacy release rather than the original PlayStation 2 version
 1557,PS5,19686,Resident Evil 2,GAIAS PS5 record corresponds to the 2019 remake with the 2022 PlayStation 5 release rather than the original game or later distinct IGDB record
 1377,PS4,124283,Oniken: Unstoppable Edition & Odallus: The Dark Call Collection,GAIAS calls the combined release a Bundle while IGDB uses Collection
+1569,PS4,150045,Resident Evil: Revelations,GAIAS identifies the first Revelations game and the IGDB HD console lineage includes PlayStation 4
+1579,PS4,109580,Resonance of Fate 4k/HD Edition,GAIAS uses the original title while the PlayStation 4 release is represented by IGDB as the 4K/HD Edition
+1586,PS5,389436,Rev. Noir,GAIAS punctuation differs from the IGDB title
+1596,PS4,23331,Rise of the Tomb Raider: 20 Year Celebration,GAIAS PlayStation 4 entitlement corresponds to the PlayStation release represented by IGDB as the 20 Year Celebration edition
+1599,PS4,42939,Risen 3: Titan Lords - Enhanced Edition,GAIAS uses the base title while the PlayStation 4 release is the Enhanced Edition
+1607,PS4,283095,Rocket Knight Adventures: Re-Sparked,GAIAS adds Collection while IGDB represents the PlayStation release as Re-Sparked
+1635,PS4,7605,S.T.A.L.K.E.R.: Call of Pripyat,GAIAS removes punctuation from STALKER and misspells Pripyat as Prypiat
+1636,PS4,4840,S.T.A.L.K.E.R.: Clear Sky,GAIAS removes punctuation from STALKER
+1637,PS4,320,S.T.A.L.K.E.R.: Shadow of Chernobyl,GAIAS removes punctuation from STALKER
+1646,PS4,82419,Saints Row IV: Re-Elected & Gat out of Hell,GAIAS has minor punctuation and possessive differences from the IGDB bundle title
+1681,PS5,127342,Hellblade II: Senua's Saga,GAIAS reverses the title order and uses Arabic 2 while IGDB uses Roman numeral II
+1731,PS4,19130,Sid Meier's Civilization VI,GAIAS adds Console Edition while IGDB represents the PS4 release under the base Civilization VI record
+1750,PS4,305071,Slay the Princess: The Pristine Cut,GAIAS uses the base title while the PlayStation release is represented by IGDB as The Pristine Cut
+1773,PS4,241044,Someday You'll Return: Director's Cut,GAIAS uses the base title while the PlayStation 4 release is represented by IGDB as Director's Cut
+1723,PS4,135913,Shin Megami Tensei III: Nocturne - HD Remaster,Canonical IGDB HD Remaster record; alternate same-title record appears to be a duplicate or regional release
