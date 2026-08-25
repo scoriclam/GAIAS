@@ -3,6 +3,7 @@
 gaias.duckdb
 .venv/
 .env
-__pycache__/logs/
-python/__pycache__/
+__pycache__/
 /logs/
+source/playability_review_queue.csv
+source/playability_review_queue.xlsx
