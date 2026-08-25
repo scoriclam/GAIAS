@@ -65,27 +65,30 @@ igdb_values AS (
     WHERE row_num = 1
 ),
 
-mapped_values AS (
+resolved_values AS (
     SELECT
         iv.GAIASGameID,
         iv.SearchPlatform,
         iv.ClassificationType,
         iv.IGDBValue,
-        CASE
-            WHEN iv.ClassificationType = 'Perspective'
-             AND iv.IGDBValue = 'Bird view / Isometric'
-                THEN 'Bird view/Isometric'
-            ELSE iv.IGDBValue
-        END AS ProposedGAIASValue
+        COALESCE(
+            m.GAIASValue,
+            iv.IGDBValue
+        ) AS ProposedGAIASValue
     FROM igdb_values iv
+    LEFT JOIN map_igdb_classification m
+        ON lower(m.ClassificationType)
+           = lower(iv.ClassificationType)
+       AND lower(m.IGDBValue)
+           = lower(iv.IGDBValue)
 )
 
 SELECT
-    mv.GAIASGameID,
+    rv.GAIASGameID,
     g.GameTitle,
-    mv.SearchPlatform,
-    mv.ClassificationType,
-    mv.IGDBValue,
+    rv.SearchPlatform,
+    rv.ClassificationType,
+    rv.IGDBValue,
     gc.ClassificationValue AS GAIASValue,
     gc.GameClassificationID,
     CASE
@@ -93,10 +96,11 @@ SELECT
             THEN 'READY'
         ELSE 'UNMAPPED'
     END AS MappingStatus
-FROM mapped_values mv
+FROM resolved_values rv
 JOIN Game g
-    ON g.GameID = mv.GAIASGameID
+    ON g.GameID = rv.GAIASGameID
 LEFT JOIN GameClassification gc
-    ON gc.ClassificationType = mv.ClassificationType
+    ON lower(gc.ClassificationType)
+       = lower(rv.ClassificationType)
    AND lower(gc.ClassificationValue)
-       = lower(mv.ProposedGAIASValue);
+       = lower(rv.ProposedGAIASValue);
