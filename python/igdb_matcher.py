@@ -1,5 +1,6 @@
 import csv
 import re
+import unicodedata
 
 from igdb_client import IGDBClient
 
@@ -32,6 +33,14 @@ OVERRIDE_FILE = "config/igdb_match_overrides.csv"
 def normalize_title(title):
     normalized = title.casefold().strip()
 
+    # Remove diacritics.
+    # Example: "Pokémon" becomes "Pokemon".
+    normalized = "".join(
+        character
+        for character in unicodedata.normalize("NFKD", normalized)
+        if not unicodedata.combining(character)
+    )
+
     # Remove selected leading brand prefixes.
     normalized = re.sub(
         r"^(disney|dreamworks)\s+",
@@ -40,8 +49,6 @@ def normalize_title(title):
     )
 
     # Remove trailing alias annotations.
-    # Example:
-    # "EarthBound (aka Mother 2)" becomes "EarthBound"
     normalized = re.sub(
         r"\s*\(aka [^)]+\)\s*$",
         "",
@@ -127,6 +134,141 @@ class IGDBMatcher:
         self.client = IGDBClient()
         self.overrides = load_overrides()
 
+    def _platform_title_matches(
+        self,
+        games,
+        title,
+        allowed_platforms,
+    ):
+        normalized_title = normalize_title(title)
+
+        matches = []
+
+        for game in games:
+            platform_names = [
+                platform["name"]
+                for platform in game.get("platforms", [])
+            ]
+
+            platform_matches = any(
+                allowed_platform in platform_names
+                for allowed_platform in allowed_platforms
+            )
+
+            title_matches = (
+                normalize_title(game.get("name", ""))
+                == normalized_title
+            )
+
+            if platform_matches and title_matches:
+                matches.append(game)
+
+        return matches
+
+    def _resolve_games(
+        self,
+        games,
+        title,
+        platform_code,
+        acquisition_source,
+    ):
+        igdb_platform = PLATFORM_NAME_MAP[platform_code]
+
+        native_matches = self._platform_title_matches(
+            games,
+            title,
+            [igdb_platform],
+        )
+
+        if len(native_matches) == 1:
+            return {
+                "status": "MATCHED",
+                "title": title,
+                "platform": platform_code,
+                "match": native_matches[0],
+                "candidates": native_matches,
+            }
+
+        if len(native_matches) > 1:
+            return {
+                "status": "AMBIGUOUS",
+                "title": title,
+                "platform": platform_code,
+                "match": None,
+                "candidates": native_matches,
+            }
+
+        backward_platforms = (
+            BACKWARD_COMPATIBLE_PLATFORM_MAP.get(
+                platform_code,
+                [],
+            )
+        )
+
+        backward_matches = self._platform_title_matches(
+            games,
+            title,
+            backward_platforms,
+        )
+
+        if len(backward_matches) == 1:
+            return {
+                "status": "MATCHED_BACKCOMPAT",
+                "title": title,
+                "platform": platform_code,
+                "match": backward_matches[0],
+                "candidates": backward_matches,
+            }
+
+        if len(backward_matches) > 1:
+            return {
+                "status": "AMBIGUOUS",
+                "title": title,
+                "platform": platform_code,
+                "match": None,
+                "candidates": backward_matches,
+            }
+
+        virtual_console_platforms = (
+            VIRTUAL_CONSOLE_PLATFORM_MAP.get(
+                platform_code,
+                [],
+            )
+        )
+
+        if (
+            platform_code == "WIIU"
+            and acquisition_source == "ROM"
+            and virtual_console_platforms
+        ):
+            virtual_console_matches = (
+                self._platform_title_matches(
+                    games,
+                    title,
+                    virtual_console_platforms,
+                )
+            )
+
+            if len(virtual_console_matches) == 1:
+                return {
+                    "status": "MATCHED_VIRTUAL_CONSOLE",
+                    "title": title,
+                    "platform": platform_code,
+                    "match": virtual_console_matches[0],
+                    "candidates": virtual_console_matches,
+                }
+
+            if len(virtual_console_matches) > 1:
+                return {
+                    "status": "AMBIGUOUS",
+                    "title": title,
+                    "platform": platform_code,
+                    "match": None,
+                    "candidates": virtual_console_matches,
+                }
+
+        return None
+
     def match_game(
         self,
         title,
@@ -160,9 +302,7 @@ class IGDBMatcher:
                     "override_reason": override["OverrideReason"],
                 }
 
-        igdb_platform = PLATFORM_NAME_MAP.get(platform_code)
-
-        if not igdb_platform:
+        if platform_code not in PLATFORM_NAME_MAP:
             return {
                 "status": "UNSUPPORTED_PLATFORM",
                 "title": title,
@@ -173,159 +313,38 @@ class IGDBMatcher:
 
         search_title = build_search_title(title)
 
-        games = self.client.search_game(
+        # First attempt: normal IGDB search.
+        games = self.client.search_game(search_title)
+
+        result = self._resolve_games(
+            games,
+            title,
+            platform_code,
+            acquisition_source,
+        )
+
+        if result is not None:
+            return result
+
+        # Second attempt: exact-name lookup.
+        exact_games = self.client.exact_name_game(
             search_title
         )
 
-        normalized_search_title = normalize_title(title)
-
-        # First preference:
-        # exact/normalized title match on the native inventory platform.
-        native_platform_matches = []
-
-        for game in games:
-            platform_names = [
-                platform["name"]
-                for platform in game.get("platforms", [])
-            ]
-
-            if igdb_platform in platform_names:
-                native_platform_matches.append(game)
-
-        native_title_matches = [
-            game
-            for game in native_platform_matches
-            if normalize_title(game.get("name", ""))
-            == normalized_search_title
-        ]
-
-        if len(native_title_matches) == 1:
-            return {
-                "status": "MATCHED",
-                "title": title,
-                "platform": platform_code,
-                "match": native_title_matches[0],
-                "candidates": native_platform_matches,
-            }
-
-        if len(native_title_matches) > 1:
-            return {
-                "status": "AMBIGUOUS",
-                "title": title,
-                "platform": platform_code,
-                "match": None,
-                "candidates": native_title_matches,
-            }
-
-        # Second preference:
-        # approved backward-compatible platform.
-        fallback_platforms = (
-            BACKWARD_COMPATIBLE_PLATFORM_MAP.get(
-                platform_code,
-                [],
-            )
+        result = self._resolve_games(
+            exact_games,
+            title,
+            platform_code,
+            acquisition_source,
         )
 
-        backward_compatible_matches = []
-
-        for game in games:
-            platform_names = [
-                platform["name"]
-                for platform in game.get("platforms", [])
-            ]
-
-            has_fallback_platform = any(
-                fallback_platform in platform_names
-                for fallback_platform in fallback_platforms
-            )
-
-            title_matches = (
-                normalize_title(game.get("name", ""))
-                == normalized_search_title
-            )
-
-            if has_fallback_platform and title_matches:
-                backward_compatible_matches.append(game)
-
-        if len(backward_compatible_matches) == 1:
-            return {
-                "status": "MATCHED_BACKCOMPAT",
-                "title": title,
-                "platform": platform_code,
-                "match": backward_compatible_matches[0],
-                "candidates": backward_compatible_matches,
-            }
-
-        if len(backward_compatible_matches) > 1:
-            return {
-                "status": "AMBIGUOUS",
-                "title": title,
-                "platform": platform_code,
-                "match": None,
-                "candidates": backward_compatible_matches,
-            }
-
-        # Third preference:
-        # Wii U ROM/Homebrew titles that correspond to Virtual Console
-        # releases from approved Nintendo legacy platforms.
-        virtual_console_platforms = (
-            VIRTUAL_CONSOLE_PLATFORM_MAP.get(
-                platform_code,
-                [],
-            )
-        )
-
-        if (
-            platform_code == "WIIU"
-            and acquisition_source == "ROM"
-            and virtual_console_platforms
-        ):
-            virtual_console_matches = []
-
-            for game in games:
-                platform_names = [
-                    platform["name"]
-                    for platform in game.get("platforms", [])
-                ]
-
-                has_virtual_console_platform = any(
-                    legacy_platform in platform_names
-                    for legacy_platform in virtual_console_platforms
-                )
-
-                title_matches = (
-                    normalize_title(game.get("name", ""))
-                    == normalized_search_title
-                )
-
-                if (
-                    has_virtual_console_platform
-                    and title_matches
-                ):
-                    virtual_console_matches.append(game)
-
-            if len(virtual_console_matches) == 1:
-                return {
-                    "status": "MATCHED_VIRTUAL_CONSOLE",
-                    "title": title,
-                    "platform": platform_code,
-                    "match": virtual_console_matches[0],
-                    "candidates": virtual_console_matches,
-                }
-
-            if len(virtual_console_matches) > 1:
-                return {
-                    "status": "AMBIGUOUS",
-                    "title": title,
-                    "platform": platform_code,
-                    "match": None,
-                    "candidates": virtual_console_matches,
-                }
+        if result is not None:
+            return result
 
         return {
             "status": "NO_EXACT_MATCH",
             "title": title,
             "platform": platform_code,
             "match": None,
-            "candidates": native_platform_matches,
+            "candidates": games,
         }

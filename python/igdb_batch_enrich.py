@@ -5,7 +5,7 @@ from igdb_stage_writer import write_match_to_staging
 
 
 DB_PATH = "gaias.duckdb"
-BATCH_SIZE = 20
+BATCH_SIZE = 50
 
 
 PLATFORM_CODE_MAP = {

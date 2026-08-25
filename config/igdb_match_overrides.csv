@@ -2,3 +2,8 @@ GAIASGameID,PlatformCode,IGDBID,IGDBName,OverrideReason
 199,WIIU,21066,Batman Arkham Origins: Blackgate - Deluxe Edition,GAIAS title omits the IGDB edition designation
 703,WIIU,19644,Falling Skies: The Game,GAIAS title omits the IGDB subtitle
 1167,WIIU,3990,Mario & Sonic at the Sochi 2014 Olympic Winter Games,GAIAS and IGDB use different word order in the subtitle
+1356,WIIU,5552,Oddworld: New 'n' Tasty,GAIAS title includes the older Abe's Oddysee naming not used by IGDB for the Wii U release
+1493,WIIU,84799,Punch-Out!!,GAIAS title includes the Mr. Dream edition descriptor while IGDB uses the base Punch-Out!! title
+1812,WIIU,20858,SpongeBob SquarePants: Plankton's Robotic Revenge,GAIAS title omits the SquarePants franchise name used by IGDB
+1568,WIIU,150045,Resident Evil: Revelations,GAIAS Wii U copy corresponds to the 2013 HD console release rather than the original 3DS release lineage
+1215,WIIU,1101,Metroid,GAIAS Wii U copy corresponds to the Western NES/Wii U Virtual Console release lineage rather than the Japanese Famicom Disk System lineage

@@ -56,12 +56,33 @@ class IGDBClient:
             id,
             name,
             first_release_date,
+            category,
             genres.name,
             themes.name,
             game_modes.name,
             player_perspectives.name,
             platforms.name;
         search "{safe_title}";
+        limit {limit};
+        """
+
+        return self.query_games(query)
+
+    def exact_name_game(self, title, limit=50):
+        safe_title = title.replace('"', '\\"')
+
+        query = f"""
+        fields
+            id,
+            name,
+            first_release_date,
+            category,
+            genres.name,
+            themes.name,
+            game_modes.name,
+            player_perspectives.name,
+            platforms.name;
+        where name = "{safe_title}";
         limit {limit};
         """
 
