@@ -3,4 +3,5 @@
 gaias.duckdb
 .venv/
 .env
-__pycache__/
+__pycache__/logs/
+python/__pycache__/
