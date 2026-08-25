@@ -60,3 +60,23 @@ GAIASGameID,PlatformCode,IGDBID,IGDBName,OverrideReason
 877,PS4,166685,Hard West: Ultimate Edition,GAIAS source title misspells Edition
 778,PS4,18452,Grip,GAIAS uses the marketing title GRIP: Combat Racing while IGDB uses the base title Grip
 841,PS4,1020,Grand Theft Auto V,IGDB contains a derivative version record but 1020 is the canonical parent record for Grand Theft Auto V
+888,PS4,317215,Heaven Dust Collection,GAIAS uses Heaven Dust Series while IGDB uses Heaven Dust Collection
+892,PS5,314449,Hela: Of Mice & Magic,GAIAS uses the shortened Hela title while IGDB uses the full title
+895,PS5,250616,Helldivers 2,GAIAS uses Roman numeral II while IGDB uses Arabic 2
+965,PS4,96278,Inked,GAIAS uses the extended subtitle A Tale of Love while IGDB uses Inked
+981,PS4,292895,Jak and Daxter: The Lost Frontier,GAIAS misspells Daxter as Dexter and IGDB has a PS4/PS5 release record
+1015,PS4,55198,Kentucky Route Zero: TV Edition,GAIAS uses the base title while the console release is represented by IGDB as TV Edition
+1022,PS5,262530,Killing Floor III,GAIAS uses Arabic 3 while IGDB uses Roman numeral III
+1030,PS5,405459,Kingdom Hearts Collection [I-III],GAIAS uses the shortened Kingdom Hearts Collection title
+1031,PS4,14159,Kingdom Hearts HD 2.8 Final Chapter Prologue,GAIAS omits the Prologue designation used by IGDB
+1032,PS4,27979,Kingdom Hearts HD 1.5 + 2.5 Remix,GAIAS uses Roman numeral styling while IGDB uses Arabic numbering
+1048,PS4,26194,Knack II,GAIAS uses Arabic 2 while IGDB uses Roman numeral II
+1054,PS4,122279,Kowloon High-School Chronicle,GAIAS title omits the hyphen used by IGDB
+1057,PS5,388439,Kyoto Xanadu: The Blooming Phantom,GAIAS uses the shortened Kyoto Xanadu title
+1061,PS4,317623,Lunar Remastered Collection,GAIAS uses Remastered Edition while IGDB uses Remastered Collection
+1067,PS4,107238,Langrisser I & II,GAIAS uses plus while IGDB uses an ampersand
+1071,PS4,12482,Layers of Fear,GAIAS uses Layers of Fear 1 to distinguish the first game while IGDB uses Layers of Fear
+937,PS4,144612,Ico,GAIAS PlayStation Plus entitlement corresponds to the PS3 remaster lineage represented by IGDB
+954,PS4,1928,Indigo Prophecy,IGDB canonical record includes the 2016 PlayStation 4 rerelease used by GAIAS
+982,PS4,1528,Jak and Daxter: The Precursor Legacy,GAIAS misspells Daxter as Dexter and the canonical IGDB record includes the 2017 PlayStation 4 release
+1059,PS4,22387,Legrand Legacy,GAIAS uses the extended subtitle Tale of the Fatebounds while IGDB uses Legrand Legacy

@@ -21,3 +21,11 @@ GAIASGameID,PlatformCode,DeferReason
 785,PS5,IGDB currently lists Gang of Dragon only for PC; revisit after platform metadata changes
 792,PS4,IGDB Gold Bundle record is Xbox One only while the base Generation Zero game supports PS4; defer to preserve edition identity
 804,PS4,IGDB lists Ghostrunner II for PS5 but not PS4; source platform requires review
+913,PS5,Hollow Knight Voidheart Edition does not have a distinct reliable PS5 edition record in IGDB; defer rather than collapse edition identity into the base game
+988,PS5,IGDB currently identifies the announced PS5 project as Untitled John Wick Game while GAIAS uses John Wick; defer until the official title is settled
+991,PS4,IGDB Employee of the Month Edition is currently represented as PS5 while GAIAS records a PS4 entitlement; source edition/platform requires review
+1007,PS5,IGDB Anniversary Edition record does not currently include PlayStation while the base Kao the Kangaroo record does; defer to preserve edition identity
+1027,PS4,IGDB does not provide a reliable King's Quest Complete Collection record for PS4; defer rather than collapse the collection into the base game
+1049,PS4,IGDB Knights of Pen and Paper Bundle record does not include PS4 while individual titles do; defer to preserve bundle identity
+1099,PS4,IGDB does not provide a reliable Light Fairytale Prologue Bundle record for PS4; defer rather than infer which episode combination the bundle represents
+1100,PS5,IGDB currently lists Light No Fire only for PC; revisit after external platform metadata changes
