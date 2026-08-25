@@ -137,3 +137,19 @@ GAIASGameID,PlatformCode,IGDBID,IGDBName,OverrideReason
 1998,PS4,244573,The Bridge Curse 2: The Extrication,GAIAS source contains the typo Extracation instead of Extrication
 2007,PS4,78547,The Council,GAIAS uses The Complete Season storefront/package title while IGDB represents the complete episodic game as The Council
 2012,PS5,237780,Directive 8020,GAIAS includes The Dark Pictures Anthology franchise prefix while IGDB uses Directive 8020
+2024,PS5,1081,The Elder Scrolls Online,GAIAS uses the Tamriel Unlimited console subtitle while IGDB represents the current PS4/PS5 game under the base Elder Scrolls Online record
+2068,PS4,78115,The Legend of Heroes: Trails of Cold Steel IV,GAIAS uses Arabic 4 while IGDB uses Roman numeral IV
+2072,PS4,185864,The Legend of Heroes: Trails Through Daybreak II,GAIAS uses Arabic 2 while IGDB uses Roman numeral II
+2075,PS4,151693,The Legend of Tianding,GAIAS separates Tianding as Tian Ding while IGDB uses Tianding
+2094,PS4,312284,The Mortuary Assistant: Definitive Edition,GAIAS uses the base title while the PlayStation release is represented by IGDB as Definitive Edition
+2107,PS5,143574,Planet Crafter,GAIAS includes the article The while IGDB uses Planet Crafter
+2129,PS5,79864,The Talos Principle II,GAIAS uses Arabic 2 while IGDB uses Roman numeral II
+2141,PS4,41623,The Walking Dead: The Complete First Season,GAIAS includes the A Telltale Games Series branding while IGDB uses The Complete First Season
+2149,PS5,194662,The Witcher IV,GAIAS uses Arabic 4 while IGDB uses Roman numeral IV
+2167,PS4,317415,TimeSplitters,GAIAS PlayStation Plus entitlement corresponds to the modern PlayStation 4 and PlayStation 5 release record
+2168,PS4,317414,TimeSplitters 2,GAIAS PlayStation Plus entitlement corresponds to the modern PlayStation 4 and PlayStation 5 release record
+2169,PS4,317416,TimeSplitters: Future Perfect,GAIAS PlayStation Plus entitlement corresponds to the modern PlayStation 4 and PlayStation 5 release record
+2174,PS4,32614,Titan Quest Anniversary Edition,GAIAS uses Titan Quest while the PlayStation 4 release is represented by IGDB as Anniversary Edition
+2186,PS5,7360,Rainbow Six Siege,GAIAS includes the Tom Clancy branding while IGDB canonical game record uses Rainbow Six Siege
+2190,PS5,266683,Tomb Raider I•II•III Remastered,GAIAS uses hyphens while IGDB uses dot separators between Roman numerals
+2191,PS5,319480,Tomb Raider IV•V•VI Remastered,GAIAS uses hyphens while IGDB uses dot separators between Roman numerals

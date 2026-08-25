@@ -58,3 +58,7 @@ GAIASGameID,PlatformCode,DeferReason
 1946,PS4,Tails of Iron 2 appears to refer to Tails of Iron II Whiskers of Winter already represented separately by GAIAS GameID 1947; defer to avoid assigning one IGDB ID to two GAIAS games
 1973,PS5,IGDB has Terminator Survivors but no reliable record for the GAIAS subtitle The Aftermath; defer to preserve title or edition identity
 1981,PS5,IGDB The Age of Bhaarat currently lists only PC; defer PS5 source until platform metadata changes
+2020,PS5,IGDB The Drifter currently lists PC Mac Linux and Nintendo Switch but not PlayStation 5; defer until platform metadata changes
+2050,PS4,IGDB Complete Trilogy record is Xbox One only while the three individual Van Helsing games have PS4 releases; defer to preserve bundle identity
+2091,PS4,IGDB The Medium currently supports PlayStation 5 but not PlayStation 4; source platform requires review
+2142,PS4,IGDB The Walking Dead Saints and Sinners is represented as a PlayStation VR title rather than a standard PlayStation 4 release; defer to preserve VR platform semantics
