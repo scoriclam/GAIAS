@@ -9,3 +9,10 @@ GAIASGameID,PlatformCode,DeferReason
 387,PS5,IGDB currently lists Chronicles: Medieval only for PC; revisit after external platform metadata changes
 392,PS5,IGDB currently lists Cinder City only for PC; revisit after external platform metadata changes
 404,PS5,IGDB currently lists Clockwork Revolution only for Xbox Series and PC; requires source platform review or later metadata refresh
+526,PS4,IGDB contains both the remake and original-classic Destroy All Humans records on PS4 and the GAIAS title does not distinguish them
+560,PS4,IGDB has the base Dissidia Final Fantasy NT record but no reliable Digital Deluxe Edition record to preserve edition identity
+562,PS5,IGDB does not currently provide a reliable PS5 match for the GAIAS title Divinity
+568,PS4,IGDB lists Don Bradman Cricket 14 for PS3 PC Xbox 360 and Xbox One but not PS4 so the source platform requires review
+598,PS5,IGDB does not currently return a reliable record for Dragon Quest XII The Flames of Fate
+610,PS4,IGDB lists Drova Forsaken Kin for PS5 but not PS4 so the source platform requires review
+639,PS5,IGDB currently lists Earthblade only for PC so the GAIAS PS5 record requires later source review

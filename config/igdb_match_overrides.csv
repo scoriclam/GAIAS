@@ -30,3 +30,18 @@ GAIASGameID,PlatformCode,IGDBID,IGDBName,OverrideReason
 241,PS4,117984,Black Clover: Quartet Knights Deluxe Edition,IGDB has the exact Deluxe Edition record but does not currently provide platform metadata for it
 263,PS4,323372,Blood Omen 2: Legacy of Kain,GAIAS uses the extended The Legacy of Kain Series wording while IGDB uses Legacy of Kain
 393,PS4,94074,Cities: Skylines - PlayStation 4 Edition,GAIAS uses the base title while IGDB has a specific PlayStation 4 Edition record
+453,PS4,25253,Cursed Castilla EX,GAIAS uses the shortened Cursed Castilla title while the PS4 release is Cursed Castilla EX
+455,PS5,1877,Cyberpunk 2077,GAIAS source title misspells Cyberpunk
+473,PS4,11133,Dark Souls III,GAIAS title uses Arabic 3 while IGDB uses Roman numeral III
+480,PS5,358770,Darksiders 4,GAIAS title uses Roman numeral IV while IGDB uses Arabic 4
+492,PS4,20063,Dead Nation: Apocalypse Edition,GAIAS title omits the Edition designation
+508,PS4,41061,Death End Re;Quest,GAIAS title uses different capitalization and punctuation
+519,PS4,337907,Demon Slayer: Kimetsu no Yaiba - The Hinokami Chronicles 2,GAIAS source title misspells Hinokami as Hinomaki
+524,PS4,22916,Destiny: The Collection,GAIAS title omits the article The
+530,PS4,347125,Deus Ex: The Conspiracy,GAIAS title includes Deus Ex with an aka annotation for The Conspiracy
+549,PS4,11594,Disgaea 5: Alliance of Vengeance,GAIAS title uses Roman V and misspells Vengeance
+563,PS5,103337,Divinity: Original Sin II - Definitive Edition,GAIAS title uses Arabic 2 while IGDB uses Roman numeral II
+564,PS4,14177,Divinity: Original Sin - Enhanced Edition,GAIAS title includes unnecessary Roman numeral I
+580,PS4,7351,Doom,GAIAS uses Doom 2016 to distinguish the reboot while IGDB uses Doom
+601,PS5,115060,Dragon's Dogma II,GAIAS title uses Arabic 2 while IGDB uses Roman numeral II
+653,PS4,152245,Eiyuden Chronicle: Rising,GAIAS source title incorrectly uses Chronicles instead of Chronicle
