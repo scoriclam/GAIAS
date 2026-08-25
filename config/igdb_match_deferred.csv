@@ -29,3 +29,8 @@ GAIASGameID,PlatformCode,DeferReason
 1049,PS4,IGDB Knights of Pen and Paper Bundle record does not include PS4 while individual titles do; defer to preserve bundle identity
 1099,PS4,IGDB does not provide a reliable Light Fairytale Prologue Bundle record for PS4; defer rather than infer which episode combination the bundle represents
 1100,PS5,IGDB currently lists Light No Fire only for PC; revisit after external platform metadata changes
+1122,PS5,IGDB has Longevity Yin and Yang but currently provides no platform metadata; revisit after external metadata changes
+1174,PS4,IGDB Digital Deluxe record is currently Xbox-only while the base Martha Is Dead record supports PS4; defer to preserve edition identity
+1206,PS5,IGDB currently returns Metal Gear Solid Master Collection Vol. 2 Bonus Content rather than a clear base Vol. 2 record; defer until edition structure is clearer
+1250,PS4,IGDB Moss Book II is represented as a VR title without a plain PS4 platform entry; source platform/VR entitlement requires review
+1301,PS4,IGDB Neptunia reVerse is currently PS5-only while GAIAS records PS4; source platform requires review

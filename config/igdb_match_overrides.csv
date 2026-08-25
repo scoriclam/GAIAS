@@ -80,3 +80,17 @@ GAIASGameID,PlatformCode,IGDBID,IGDBName,OverrideReason
 954,PS4,1928,Indigo Prophecy,IGDB canonical record includes the 2016 PlayStation 4 rerelease used by GAIAS
 982,PS4,1528,Jak and Daxter: The Precursor Legacy,GAIAS misspells Daxter as Dexter and the canonical IGDB record includes the 2017 PlayStation 4 release
 1059,PS4,22387,Legrand Legacy,GAIAS uses the extended subtitle Tale of the Fatebounds while IGDB uses Legrand Legacy
+1124,PS5,318503,Lords of the Fallen II,GAIAS uses Arabic 2 while IGDB uses Roman numeral II
+1175,PS5,216315,Marvel 1943: Rise of Hydra,GAIAS includes the article the while IGDB omits it
+1191,PS4,76960,MediEvil,GAIAS PlayStation Plus entitlement corresponds to the native PlayStation 4 remake record rather than legacy versions
+1195,PS4,19874,Mega Man Legacy Collection,GAIAS appends 1 to distinguish the first collection while IGDB uses the base collection title
+1200,PS4,250635,Metal Gear Solid Master Collection: Volume 1,GAIAS title includes Bonus Content while IGDB uses the parent collection title
+1204,PS4,25637,Metal Gear Solid V: The Definitive Experience,GAIAS adds Package to the title while IGDB uses The Definitive Experience
+1205,PS5,250634,Metal Gear Solid Delta: Snake Eater,GAIAS uses the Delta symbol while IGDB spells out Delta
+1230,PS4,18182,Momodora: Reverie Under the Moonlight,GAIAS source title contains the typo ther instead of the
+1271,PS4,141568,Myst,GAIAS Digital Download corresponds to the modern PlayStation 4/5 Myst release rather than legacy versions
+1310,PS4,26202,Nex Machina,GAIAS adds the subtitle Death Machine while IGDB uses Nex Machina
+1316,PS4,131999,NieR Replicant ver.1.22474487139...,GAIAS spacing differs from IGDB version-title formatting
+1319,PS4,28249,Night Trap: 25th Anniversary Edition,GAIAS uses the base Night Trap title while the PlayStation release is the 25th Anniversary Edition
+1323,PS4,25636,Nights of Azure 2: Bride of the New Moon,GAIAS uses the shortened Nights of Azure 2 title
+1340,PS4,119387,No More Heroes III,GAIAS uses Arabic 3 while IGDB uses Roman numeral III
