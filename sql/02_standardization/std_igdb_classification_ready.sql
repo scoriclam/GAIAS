@@ -1,5 +1,5 @@
 CREATE OR REPLACE VIEW std_igdb_classification_ready AS
-WITH latest_success AS (
+WITH latest_result AS (
     SELECT
         GAIASGameID,
         SearchPlatform,
@@ -7,18 +7,32 @@ WITH latest_success AS (
         ThemesRaw,
         GameModesRaw,
         PlayerPerspectivesRaw,
+        FetchStatus,
         FetchedAt,
         ROW_NUMBER() OVER (
             PARTITION BY GAIASGameID, SearchPlatform
             ORDER BY FetchedAt DESC
         ) AS row_num
     FROM stg_igdb_game_raw
-    WHERE FetchStatus IN (
-        'MATCHED',
-        'MATCHED_OVERRIDE',
-        'MATCHED_BACKCOMPAT',
-        'MATCHED_VIRTUAL_CONSOLE'
-    )
+),
+
+latest_success AS (
+    SELECT
+        GAIASGameID,
+        SearchPlatform,
+        GenresRaw,
+        ThemesRaw,
+        GameModesRaw,
+        PlayerPerspectivesRaw
+    FROM latest_result
+    WHERE row_num = 1
+      AND FetchStatus IN (
+          'MATCHED',
+          'MATCHED_OVERRIDE',
+          'MATCHED_BACKCOMPAT',
+          'MATCHED_VIRTUAL_CONSOLE',
+          'MATCHED_PSPLUS_LEGACY'
+      )
 ),
 
 igdb_values AS (
@@ -29,7 +43,6 @@ igdb_values AS (
         trim(value::VARCHAR, '"') AS IGDBValue
     FROM latest_success,
          json_each(GenresRaw)
-    WHERE row_num = 1
 
     UNION ALL
 
@@ -40,7 +53,6 @@ igdb_values AS (
         trim(value::VARCHAR, '"')
     FROM latest_success,
          json_each(ThemesRaw)
-    WHERE row_num = 1
 
     UNION ALL
 
@@ -51,7 +63,6 @@ igdb_values AS (
         trim(value::VARCHAR, '"')
     FROM latest_success,
          json_each(GameModesRaw)
-    WHERE row_num = 1
 
     UNION ALL
 
@@ -62,7 +73,6 @@ igdb_values AS (
         trim(value::VARCHAR, '"')
     FROM latest_success,
          json_each(PlayerPerspectivesRaw)
-    WHERE row_num = 1
 ),
 
 resolved_values AS (

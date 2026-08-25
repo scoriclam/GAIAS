@@ -1,5 +1,5 @@
 CREATE OR REPLACE VIEW std_igdb_release_ready AS
-WITH latest_success AS (
+WITH latest_result AS (
     SELECT
         GAIASGameID,
         SearchPlatform,
@@ -13,12 +13,22 @@ WITH latest_success AS (
             ORDER BY FetchedAt DESC
         ) AS row_num
     FROM stg_igdb_game_raw
-    WHERE FetchStatus IN (
-        'MATCHED',
-        'MATCHED_OVERRIDE',
-        'MATCHED_BACKCOMPAT',
-        'MATCHED_VIRTUAL_CONSOLE'
-    )
+),
+
+latest_success AS (
+    SELECT
+        GAIASGameID,
+        SearchPlatform,
+        IGDBID,
+        IGDBName,
+        IGDBReleaseDate,
+        FetchStatus
+    FROM latest_result
+    WHERE row_num = 1
+      AND FetchStatus IN (
+          'MATCHED',
+          'MATCHED_OVERRIDE'
+      )
 )
 
 SELECT
@@ -56,9 +66,8 @@ JOIN GameEdition ge
     ON ge.GameID = g.GameID
 JOIN Platform p
     ON p.PlatformID = ge.PlatformID
-WHERE ls.row_num = 1
-  AND ls.SearchPlatform = CASE p.PlatformName
-      WHEN 'PlayStation 4' THEN 'PS4'
-      WHEN 'PlayStation 5' THEN 'PS5'
-      WHEN 'Wii U' THEN 'WIIU'
-  END;
+WHERE ls.SearchPlatform = CASE p.PlatformName
+    WHEN 'PS4' THEN 'PS4'
+    WHEN 'PS5' THEN 'PS5'
+    WHEN 'Wii U' THEN 'WIIU'
+END;
