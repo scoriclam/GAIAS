@@ -34,3 +34,13 @@ GAIASGameID,PlatformCode,DeferReason
 1206,PS5,IGDB currently returns Metal Gear Solid Master Collection Vol. 2 Bonus Content rather than a clear base Vol. 2 record; defer until edition structure is clearer
 1250,PS4,IGDB Moss Book II is represented as a VR title without a plain PS4 platform entry; source platform/VR entitlement requires review
 1301,PS4,IGDB Neptunia reVerse is currently PS5-only while GAIAS records PS4; source platform requires review
+1352,PS5,IGDB has Oceanhorn 3 Legend of the Shadow Sea but currently lists only iOS; defer PS5 source until platform metadata changes
+1393,PS5,IGDB Outward 2 currently lists only PC; defer PS5 source until platform metadata changes
+1448,PS5,IGDB Plan 8 currently lists PlayStation 4 but not PlayStation 5; source platform requires review
+1477,PS5,IGDB Project Awakening currently lists PlayStation 4 and Xbox One but not PlayStation 5; source platform requires review
+1480,PS5,No reliable IGDB record for Project S was identified; title is too generic to infer a match
+1481,PS5,IGDB Project Spectrum record currently has no platform metadata; defer until external metadata improves
+1548,PS4,IGDB has the base Regalia game but no reliable Royal Edition OST Combo record; defer to preserve package identity
+1554,PS5,IGDB Replaced currently lists Xbox and PC platforms but not PlayStation 5; source platform requires review
+1529,PS4,Ratchet and Clank Up Your Arsenal has no PS4-native IGDB record and acquisition source is Unknown; defer rather than infer PS2 or PS3 legacy lineage
+1538,PS5,IGDB contains duplicate modern Red Dead Redemption records 260735 and 260737 with effectively identical PS4 and PS5 release metadata; defer until a reliable discriminator is available

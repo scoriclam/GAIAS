@@ -93,4 +93,24 @@ GAIASGameID,PlatformCode,IGDBID,IGDBName,OverrideReason
 1316,PS4,131999,NieR Replicant ver.1.22474487139...,GAIAS spacing differs from IGDB version-title formatting
 1319,PS4,28249,Night Trap: 25th Anniversary Edition,GAIAS uses the base Night Trap title while the PlayStation release is the 25th Anniversary Edition
 1323,PS4,25636,Nights of Azure 2: Bride of the New Moon,GAIAS uses the shortened Nights of Azure 2 title
-1340,PS4,119387,No More Heroes III,GAIAS uses Arabic 3 while IGDB uses Roman numeral III
+1340,PS4,119387,No More Heroes III,GAIAS uses Arabic 3 while IGDB uses Roman numeral III1377,PS4,124283,Oniken: Unstoppable Edition & Odallus: The Dark Call Collection,GAIAS calls the combined release a Bundle while IGDB uses Collection
+1391,PS4,14390,Outlast II,GAIAS uses Arabic 2 while IGDB uses Roman numeral II
+1425,PS4,11070,Perception,GAIAS uses Perception Remastered while IGDB represents the PlayStation 4 release as Perception
+1434,PS4,319268,Phantom Breaker: Battle Grounds Ultimate,GAIAS collapses Battle Grounds to Battlegrounds
+1443,PS4,127257,Pillars of Eternity II: Deadfire - Ultimate Edition,GAIAS uses Pillars of Eternity 2 Complete Edition for the console complete release
+1449,PS4,125019,Planescape: Torment & Icewind Dale: Enhanced Editions,GAIAS has minor title and pluralization differences from the IGDB collection
+1469,PS4,14378,Praey for the Gods,GAIAS stylizes the title as Pr(a)ey for the Gods
+1484,PS4,105738,Project Warlock,GAIAS uses the Fully Loaded storefront/package title while IGDB represents the PS4 game as Project Warlock
+1542,PS4,96027,Red Faction: Guerrilla Re-Mars-tered,GAIAS omits the colon after Red Faction
+1546,PS4,186059,Redout 2,GAIAS uses Roman numeral II while IGDB uses Arabic 2
+1556,PS4,15108,Resident Evil 0,GAIAS identifies the HD Remaster while IGDB's PS4-capable record uses Resident Evil 0
+1561,PS4,23215,Resident Evil 5 Remastered,GAIAS uses Resident Evil 5 while the PlayStation 4 release is represented by IGDB as Remastered
+1562,PS4,41858,Resident Evil 6 Remastered,GAIAS uses Resident Evil 6 while the PlayStation 4 release is represented by IGDB as Remastered
+1565,PS4,8254,Resident Evil,GAIAS uses Resident Evil HD Remaster while IGDB's PlayStation 4-capable record uses Resident Evil
+1498,PS4,165247,Quake,GAIAS uses Quake 1 while IGDB canonical modern-console record uses Quake; alternate IGDB record is a versioned 25th Anniversary Bundle
+1499,PS4,261085,Quake II,GAIAS uses Arabic 2 while IGDB canonical modern-console record uses Roman numeral II; alternate IGDB record is a versioned Updated Bundle
+1522,PS4,253138,Ratchet & Clank: Going Commando,GAIAS PlayStation Plus entitlement corresponds to the PlayStation 3 legacy release rather than the original PlayStation 2 version
+1525,PS4,253148,Ratchet & Clank: Up Your Arsenal,GAIAS PlayStation Plus entitlement corresponds to the PlayStation 3 legacy release rather than the original PlayStation 2 version
+1530,PS4,254579,Ratchet: Deadlocked,GAIAS PlayStation Plus entitlement corresponds to the PlayStation 3 legacy release rather than the original PlayStation 2 version
+1557,PS5,19686,Resident Evil 2,GAIAS PS5 record corresponds to the 2019 remake with the 2022 PlayStation 5 release rather than the original game or later distinct IGDB record
+1377,PS4,124283,Oniken: Unstoppable Edition & Odallus: The Dark Call Collection,GAIAS calls the combined release a Bundle while IGDB uses Collection
