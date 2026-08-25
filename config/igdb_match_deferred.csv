@@ -50,3 +50,11 @@ GAIASGameID,PlatformCode,DeferReason
 1747,PS5,IGDB Sky Children of the Light currently lists PlayStation 4 but not PlayStation 5; source platform requires review
 1767,PS4,IGDB Season Pass Edition record is Xbox-only while the base Sniper Ghost Warrior 3 supports PS4; defer to preserve edition identity
 1633,PS4,IGDB has distinct 2016 and 2024 PlayStation 4 Siren release lineages and GAIAS acquisition source is Unknown; defer rather than choose arbitrarily
+1861,PS5,IGDB has Stellar Blade Blood Rain but currently provides no platform metadata; defer rather than collapse it into the base Stellar Blade game
+1880,PS4,IGDB Submersed is represented as PlayStation VR rather than PlayStation 4; source platform and VR entitlement semantics require review
+1882,PS5,IGDB Subnautica 2 currently lists Xbox Series and PC but not PlayStation 5; defer until platform metadata changes
+1915,PS5,IGDB Supreme Experiment currently lists only PC; defer PS5 source until platform metadata changes
+1939,PS5,No reliable IGDB match for TAL The Arcane Lands was identified; Arcane Lands is PC-only and title identity is uncertain
+1946,PS4,Tails of Iron 2 appears to refer to Tails of Iron II Whiskers of Winter already represented separately by GAIAS GameID 1947; defer to avoid assigning one IGDB ID to two GAIAS games
+1973,PS5,IGDB has Terminator Survivors but no reliable record for the GAIAS subtitle The Aftermath; defer to preserve title or edition identity
+1981,PS5,IGDB The Age of Bhaarat currently lists only PC; defer PS5 source until platform metadata changes

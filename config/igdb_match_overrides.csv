@@ -129,3 +129,11 @@ GAIASGameID,PlatformCode,IGDBID,IGDBName,OverrideReason
 1750,PS4,305071,Slay the Princess: The Pristine Cut,GAIAS uses the base title while the PlayStation release is represented by IGDB as The Pristine Cut
 1773,PS4,241044,Someday You'll Return: Director's Cut,GAIAS uses the base title while the PlayStation 4 release is represented by IGDB as Director's Cut
 1723,PS4,135913,Shin Megami Tensei III: Nocturne - HD Remaster,Canonical IGDB HD Remaster record; alternate same-title record appears to be a duplicate or regional release
+1824,PS4,74384,Star Ocean: The Last Hope - 4K & Full HD Remaster,GAIAS wording differs slightly from the IGDB remaster title
+1886,PS4,217909,Suikoden I & II HD Remaster: Gate Rune and Dunan Unification Wars,GAIAS uses the shortened Suikoden I&II HD Remaster title
+1925,PS5,122105,The Legend of Sword and Fairy 7,GAIAS uses the western console title Sword and Fairy Together Forever for the same game represented canonically by IGDB as The Legend of Sword and Fairy 7
+1926,PS5,361838,Swords of Legends,GAIAS uses singular Sword while IGDB uses Swords of Legends
+1947,PS4,292877,Tails of Iron II: Whiskers of Winter,GAIAS uses Arabic 2 while IGDB uses Roman numeral II
+1998,PS4,244573,The Bridge Curse 2: The Extrication,GAIAS source contains the typo Extracation instead of Extrication
+2007,PS4,78547,The Council,GAIAS uses The Complete Season storefront/package title while IGDB represents the complete episodic game as The Council
+2012,PS5,237780,Directive 8020,GAIAS includes The Dark Pictures Anthology franchise prefix while IGDB uses Directive 8020
