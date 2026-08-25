@@ -153,3 +153,16 @@ GAIASGameID,PlatformCode,IGDBID,IGDBName,OverrideReason
 2186,PS5,7360,Rainbow Six Siege,GAIAS includes the Tom Clancy branding while IGDB canonical game record uses Rainbow Six Siege
 2190,PS5,266683,Tomb Raider I•II•III Remastered,GAIAS uses hyphens while IGDB uses dot separators between Roman numerals
 2191,PS5,319480,Tomb Raider IV•V•VI Remastered,GAIAS uses hyphens while IGDB uses dot separators between Roman numerals
+2262,PS5,104967,Valheim,GAIAS uses Valheim 1.0 while IGDB represents the released game as Valheim
+2279,PS4,213741,Vengeful Guardian: Moonrider,GAIAS pluralizes Guardian while IGDB uses singular
+2302,PS5,185252,Warhammer 40,000: Space Marine II,GAIAS uses Arabic 2 while IGDB uses Roman numeral II
+2303,PS4,11364,Warhammer 40,000: Inquisitor - Martyr,GAIAS punctuation differs from the canonical IGDB title
+2354,PS4,122354,Woodle Tree Adventures Deluxe,GAIAS uses Adventure singular while IGDB uses Adventures
+2356,PS4,152123,World War Z: Aftermath,GAIAS describes the Aftermath expansion in parentheses while IGDB represents the release as World War Z Aftermath
+2370,PS4,117509,XIII,GAIAS labels the 2020 remake explicitly while IGDB represents the remake under the title XIII
+2375,PS4,132675,Xuan-Yuan Sword VII,GAIAS uses Arabic 7 and different hyphenation while IGDB uses Roman numeral VII
+2376,PS4,232700,Ys Memoire: The Oath in Felghana,GAIAS misspells Felghana as Felgana
+2380,PS4,103015,Yakuza 3 Remastered,GAIAS uses the original title while the PS4 release is represented by IGDB as Yakuza 3 Remastered
+2381,PS4,103016,Yakuza 4 Remastered,GAIAS uses the original title while the PS4 release is represented by IGDB as Yakuza 4 Remastered
+2382,PS4,103017,Yakuza 5 Remastered,GAIAS uses the original title while the PS4 release is represented by IGDB as Yakuza 5 Remastered
+2425,PS4,188135,Moon,GAIAS uses the original subtitle Remix RPG Adventure while the modern PS4 release is represented by IGDB as Moon

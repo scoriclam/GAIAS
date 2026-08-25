@@ -62,3 +62,9 @@ GAIASGameID,PlatformCode,DeferReason
 2050,PS4,IGDB Complete Trilogy record is Xbox One only while the three individual Van Helsing games have PS4 releases; defer to preserve bundle identity
 2091,PS4,IGDB The Medium currently supports PlayStation 5 but not PlayStation 4; source platform requires review
 2142,PS4,IGDB The Walking Dead Saints and Sinners is represented as a PlayStation VR title rather than a standard PlayStation 4 release; defer to preserve VR platform semantics
+2297,PS4,IGDB Wanderstop currently lists PlayStation 5 but not PlayStation 4; source platform requires review
+2299,PS4,IGDB has two distinct War of the Monsters PlayStation 4 records representing different release lineages; defer rather than choose arbitrarily
+2319,PS5,IGDB Welcome to Brightville currently lists only PC; defer PS5 source until platform metadata changes
+2324,PS5,IGDB Westlanders currently lists only PC; defer PS5 source until platform metadata changes
+2343,PS5,IGDB Witchbrook currently lists Xbox Nintendo and PC platforms but not PlayStation 5; defer until platform metadata changes
+2366,PS4,IGDB Complete Edition record does not include PlayStation 4 while the base X-Morph Defense record does; defer to preserve edition identity
