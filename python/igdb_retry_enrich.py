@@ -8,51 +8,36 @@ DB_PATH = "gaias.duckdb"
 BATCH_SIZE = 20
 
 
-PLATFORM_CODE_MAP = {
-    "PlayStation 4": "PS4",
-    "PlayStation 5": "PS5",
-    "Wii U": "WIIU",
-}
-
-
-def get_games_for_enrichment():
+def get_games_for_retry():
     con = duckdb.connect(DB_PATH, read_only=True)
 
     try:
         rows = con.execute(
             """
             SELECT
-                g.GameID,
+                r.GAIASGameID,
                 g.GameTitle,
-                p.PlatformName,
+                r.SearchPlatform,
                 acq.AcquisitionSourceName
-            FROM Game g
+            FROM dq_igdb_match_review r
+            JOIN Game g
+                ON g.GameID = r.GAIASGameID
             JOIN UserGameRecord ugr
                 ON ugr.GameID = g.GameID
             JOIN GameEntitlement ent
                 ON ent.UserGameRecordID = ugr.UserGameRecordID
             JOIN AcquisitionSource acq
                 ON acq.AcquisitionSourceID = ent.AcquisitionSourceID
-            LEFT JOIN GameEdition ge
+            JOIN GameEdition ge
                 ON ge.GameEditionID = ent.GameEditionID
-            LEFT JOIN Platform p
+            JOIN Platform p
                 ON p.PlatformID = ge.PlatformID
-            WHERE p.PlatformName IN (
-                'PlayStation 4',
-                'PlayStation 5',
-                'Wii U'
-            )
-              AND NOT EXISTS (
-                  SELECT 1
-                  FROM stg_igdb_game_raw s
-                  WHERE s.GAIASGameID = g.GameID
-                    AND s.SearchPlatform = CASE p.PlatformName
-                        WHEN 'PlayStation 4' THEN 'PS4'
-                        WHEN 'PlayStation 5' THEN 'PS5'
-                        WHEN 'Wii U' THEN 'WIIU'
-                    END
-              )
-            ORDER BY g.GameID
+            WHERE r.SearchPlatform = CASE p.PlatformName
+                WHEN 'PlayStation 4' THEN 'PS4'
+                WHEN 'PlayStation 5' THEN 'PS5'
+                WHEN 'Wii U' THEN 'WIIU'
+            END
+            ORDER BY r.GAIASGameID
             LIMIT ?
             """,
             [BATCH_SIZE],
@@ -67,21 +52,19 @@ def get_games_for_enrichment():
 def main():
     matcher = IGDBMatcher()
 
-    games = get_games_for_enrichment()
+    games = get_games_for_retry()
 
-    print(f"Games selected: {len(games)}")
+    print(f"Games selected for retry: {len(games)}")
     print()
 
     for (
         game_id,
         game_title,
-        platform_name,
+        platform_code,
         acquisition_source,
     ) in games:
-        platform_code = PLATFORM_CODE_MAP[platform_name]
-
         print(
-            f"Processing GameID {game_id}: "
+            f"Retrying GameID {game_id}: "
             f"{game_title} [{platform_code}] "
             f"Source={acquisition_source}"
         )

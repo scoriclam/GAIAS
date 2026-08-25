@@ -1,2 +1,4 @@
 GAIASGameID,PlatformCode,IGDBID,IGDBName,OverrideReason
 199,WIIU,21066,Batman Arkham Origins: Blackgate - Deluxe Edition,GAIAS title omits the IGDB edition designation
+703,WIIU,19644,Falling Skies: The Game,GAIAS title omits the IGDB subtitle
+1167,WIIU,3990,Mario & Sonic at the Sochi 2014 Olympic Winter Games,GAIAS and IGDB use different word order in the subtitle

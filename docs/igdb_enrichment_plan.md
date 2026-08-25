@@ -139,3 +139,29 @@ The initial staging table will be named:
 - Ambiguous matches will remain in staging until reviewed.
 - Staging records may be refreshed without changing user-maintained GAIAS fields.
 - Promotion from staging into curated structures will occur through separate validation and resolution logic.
+
+## Wii U Homebrew and Virtual Console Handling
+
+### Source Semantics
+
+For the Wii U inventory:
+
+- `Physical` represents a physical Wii U game disc.
+- `Download` represents a conventional Nintendo eShop download.
+- `ROM` represents a title obtained through the NUSspli Homebrew tool.
+- `ROM` does not imply that the title originated on a legacy console.
+- A NUSspli-acquired title may be either:
+  - a native Wii U title, or
+  - a legacy title that had been distributed through the Wii U Virtual Console ecosystem.
+
+### IGDB Matching Rules for Wii U Records
+
+The matching process should apply the following precedence:
+
+1. Prefer an exact or normalized title match on Wii U.
+2. If no Wii U match exists, allow an exact or normalized match on Wii for backward-compatible titles.
+3. For records with acquisition source `ROM`, if no Wii U or Wii match exists, allow exact or normalized matches on approved Nintendo legacy platforms represented through Virtual Console.
+4. If exactly one valid legacy-platform match remains, classify it as `MATCHED_VIRTUAL_CONSOLE`.
+5. If multiple plausible legacy-platform matches remain, classify the result as `AMBIGUOUS`.
+6. Do not infer a legacy/native platform solely from `ROM`.
+7. Manual overrides remain available for exceptional cases that cannot be resolved safely through rule-based matching.
