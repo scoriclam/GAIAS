@@ -16,3 +16,8 @@ GAIASGameID,PlatformCode,DeferReason
 598,PS5,IGDB does not currently return a reliable record for Dragon Quest XII The Flames of Fate
 610,PS4,IGDB lists Drova Forsaken Kin for PS5 but not PS4 so the source platform requires review
 639,PS5,IGDB currently lists Earthblade only for PC so the GAIAS PS5 record requires later source review
+751,PS5,IGDB base Help Wanted record lacks PS5 while a separate Full Time Edition record exists for PS5; source edition requires review
+767,PS5,IGDB currently lists Fourteen Years of Flames only for PC; revisit after platform metadata changes
+785,PS5,IGDB currently lists Gang of Dragon only for PC; revisit after platform metadata changes
+792,PS4,IGDB Gold Bundle record is Xbox One only while the base Generation Zero game supports PS4; defer to preserve edition identity
+804,PS4,IGDB lists Ghostrunner II for PS5 but not PS4; source platform requires review

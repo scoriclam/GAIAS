@@ -45,3 +45,18 @@ GAIASGameID,PlatformCode,IGDBID,IGDBName,OverrideReason
 580,PS4,7351,Doom,GAIAS uses Doom 2016 to distinguish the reboot while IGDB uses Doom
 601,PS5,115060,Dragon's Dogma II,GAIAS title uses Arabic 2 while IGDB uses Roman numeral II
 653,PS4,152245,Eiyuden Chronicle: Rising,GAIAS source title incorrectly uses Chronicles instead of Chronicle
+665,PS5,218521,Enotria: The Last Song,GAIAS includes the Standard Edition designation while IGDB uses the base title
+693,PS4,202149,F.E.A.R.,GAIAS PlayStation Plus title adds Campaign Mode while IGDB uses the base legacy PlayStation title
+697,PS4,115851,F.I.S.T.: Forged In Shadow Torch,GAIAS omits punctuation used by IGDB
+708,PS4,306139,Fantasian Neo Dimension,GAIAS capitalization and punctuation differ from IGDB
+728,PS4,20329,Figment,GAIAS uses Figment 1 to distinguish the first game while IGDB uses Figment
+739,PS4,14144,Final Fantasy X/X-2 HD Remaster,GAIAS adds Collection to the title while IGDB uses the base remaster title
+811,PS4,11857,God Eater 2: Rage Burst,The PS4 release of God Eater 2 is the Rage Burst edition represented by IGDB
+813,PS4,292896,Gods Eater Burst,GAIAS title uses God Eater Burst while IGDB uses Gods Eater Burst for the PS4 release
+817,PS4,117883,God of War,GAIAS PlayStation Plus title identifies the HD version while IGDB records the PS3/Vita remaster as God of War
+818,PS4,117882,God of War II,GAIAS PlayStation Plus title identifies the HD version while IGDB records the PS3/Vita remaster as God of War II
+830,PS4,82387,Gone Home: Console Edition,GAIAS uses the base Gone Home title while IGDB identifies the PS4 release as Console Edition
+836,PS5,358766,Gothic 3 Classic,GAIAS uses Roman numeral III while IGDB uses Arabic 3
+877,PS4,166685,Hard West: Ultimate Edition,GAIAS source title misspells Edition
+778,PS4,18452,Grip,GAIAS uses the marketing title GRIP: Combat Racing while IGDB uses the base title Grip
+841,PS4,1020,Grand Theft Auto V,IGDB contains a derivative version record but 1020 is the canonical parent record for Grand Theft Auto V
