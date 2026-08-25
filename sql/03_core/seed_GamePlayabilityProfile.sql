@@ -513,6 +513,160 @@ VALUES
 ,(2404, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
  'Fast real-time action combat uses dodging, guarding, character switching, and timing; selectable difficulty provides substantial mitigation.')
 
+-- ============================================================
+-- Priority 1 enrichment reviews - cycle 2
+-- ============================================================
+
+,(28, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Peaceful exploration-focused structure with minimal combat and reflex pressure; sensitivity and axis options provide limited control mitigation.')
+
+,(49, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Turn-based combat and exploration keep reflex demand low; progression and party management provide mitigation.')
+
+,(111, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Turn-based RPG structure keeps motor and reflex burden low; difficulty and progression systems provide mitigation.')
+
+,(129, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Conventional Assassin''s Creed movement, stealth, combat, and sailing; upgrades, ranged tools, stealth, and alternate approaches provide mitigation.')
+
+,(134, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Conventional Assassin''s Creed movement, stealth, and combat with no identified major control-risk category; upgrades and alternate approaches provide mitigation.')
+
+,(136, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Same underlying game and control model as the duplicate Black Flag entry; no major control-risk category identified.')
+
+,(202, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'Freeflow combat, counters, gadgets, traversal, and predator encounters create coordination demand; difficulty settings and tactical approaches provide mitigation.')
+
+,(245, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'Twin-stick movement and aiming, aerial navigation, and combat create coordination demand; progression, upgrades, and adjustable challenge provide mitigation.')
+
+,(302, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'First-person zero-gravity movement, survival systems, and resource management create coordination and navigation burden; difficulty and progression systems provide mitigation.')
+
+,(366, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'Third-person action combat relies on dodging, blocking, weapon switching, and boss timing; selectable difficulty provides mitigation.')
+
+,(369, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Simple action-RPG combat with forgiving controls, lightweight progression, and optional co-op; no major control-risk category identified.')
+
+,(411, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'Survival combat, crafting, inventory management, and environmental systems create layered burden; difficulty and server settings plus co-op provide strong mitigation.')
+
+,(470, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Conventional action-RPG controls with pause-driven inventory systems; weapon growth, leveling, items, and preparation provide mitigation.')
+
+,(471, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Conventional action-RPG combat with pause-driven menus, character switching, weapons, items, and extensive progression; grinding and equipment upgrades provide mitigation.')
+
+,(496, FALSE, 'Moderate', FALSE, FALSE, FALSE, FALSE,
+ 'Retains legacy-era movement, inventory pressure, survivor management, and timer-driven structure; no strong built-in mitigation identified.')
+
+,(599, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Turn-based JRPG combat keeps reflex demand low; difficulty settings, party building, and progression provide mitigation.')
+
+,(624, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'Large-scale real-time combat can become visually and mechanically busy, but difficulty settings, character progression, and straightforward crowd-combat systems provide mitigation.')
+
+,(676, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Relaxed farming and exploration structure with simple controls and little sustained reflex pressure; no major playability-risk category identified.')
+
+,(710, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'First-person aiming and combat create sustained coordination demand; easier difficulty, stealth, upgrades, and conventional controls provide mitigation.')
+
+,(711, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'First-person shooting and traversal require sustained aiming and movement; easier difficulty, stealth, progression, and weapon upgrades provide mitigation.')
+
+,(716, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'First-person combat, aiming, traversal, and animal-command systems create coordination demand; difficulty settings, stealth, companions, and progression provide mitigation.')
+
+,(724, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'Fast action combat, dodging, character switching, and boss timing create coordination burden; selectable difficulty and progression provide mitigation.')
+
+,(886, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Relaxed exploration and relationship-focused structure with relatively simple combat; difficulty options and co-op support provide mitigation.')
+
+,(1025, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'Naval combat requires steering, positioning, speed management, broadside timing, and skill use; selectable difficulty and controller-focused design provide mitigation.')
+
+,(1066, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Low-pressure narrative and driving structure with minimal combat or reflex demand; no major playability-risk category identified.')
+
+,(1080, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Forgiving LEGO action-adventure controls with simple combat, frequent checkpoints, character abilities, and optional co-op.')
+
+,(1082, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Forgiving LEGO action-adventure structure with simple combat, exploration, frequent checkpoints, and low failure pressure.')
+
+,(1134, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'Real-time movement and aiming combine with card-driven tactical combat; difficulty and progression systems provide mitigation.')
+
+,(1138, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Puzzle-platforming emphasizes deliberate movement and environmental reasoning rather than combat or rapid reflexes; no major playability-risk category identified.')
+
+,(1185, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'Third-person shooting, powers, movement, and squad management create coordination demand; multiple difficulty settings, aim assistance, builds, and squad support provide mitigation.')
+
+,(1234, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'Deliberate action combat requires camera management, positioning, weapon-specific inputs, and monster-pattern learning; equipment, preparation, and multiplayer provide mitigation.')
+
+,(1237, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Turn-based combat keeps reflex demand low; party building, monster selection, equipment, and progression provide substantial mitigation.')
+
+,(1240, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'Complex real-time hunting combat requires camera control, positioning, weapon mastery, dodging, and monster-pattern recognition; gear progression, preparation, SOS multiplayer, and build flexibility provide mitigation.')
+
+,(1293, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'Racing and pursuit sequences require sustained steering and reaction input; driving assists, progression, and vehicle upgrades provide mitigation.')
+
+,(1456, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'Third-person action combines movement, aiming, territory-clearing, and combat under pressure; difficulty and progression systems provide mitigation.')
+
+,(1551, FALSE, 'Moderate', FALSE, FALSE, TRUE, TRUE,
+ 'Souls-like combat combines dodging, stamina management, ranged aiming, and punishing encounters; co-op, builds, gear progression, and difficulty selection provide mitigation.')
+
+,(1592, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'High-speed sports and trick inputs can demand coordination, but auto-landing, multiple control presets, remapping, backtrack, adjustable difficulty, and Zen mode provide strong mitigation.')
+
+,(1609, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Conventional action-RPG controls with pause-driven support systems; leveling, equipment, items, and party management provide mitigation.')
+
+,(1722, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Investigation-focused adventure with conventional movement and limited reflex pressure; action sequences are secondary and generally forgiving.')
+
+,(1955, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Conventional real-time party RPG combat with AI-controlled allies; difficulty settings and progression provide mitigation without creating a major control-risk concern.')
+
+,(1985, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'Traversal and combat require camera coordination and quick reactions; difficulty settings and automated web-swing systems reduce burden.')
+
+,(2008, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'High-speed driving, flying, and boating require sustained coordination, but assist settings, forgiving progression, and vehicle tuning provide mitigation.')
+
+,(2031, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'Third-person survival-horror combat and resource pressure create aiming and reaction demands; easier difficulty and assistance options provide mitigation.')
+
+,(2058, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Turn-based command structure minimizes reflex demand; party composition, formations, progression, and tactical planning provide mitigation.')
+
+,(2122, FALSE, 'Moderate', FALSE, FALSE, TRUE, TRUE,
+ 'Souls-like combat emphasizes stamina, dodging, blocking, positioning, and targeted limb attacks; gear progression, implants, and build optimization provide mitigation.')
+
+,(2123, FALSE, 'Moderate', FALSE, FALSE, TRUE, TRUE,
+ 'Souls-like combat emphasizes directional parrying, stamina, dodging, positioning, and limb targeting; builds, gear progression, implants, and online support systems provide mitigation.')
+
+,(2181, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Turn-based JRPG structure keeps reflex demand low; music-themed presentation does not make it rhythm-focused. Difficulty selection and party progression provide mitigation.')
+
+,(2183, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'Tactical third-person shooting, aiming, stealth, and inventory systems create moderate burden; difficulty customization, accessibility options, AI teammates, and co-op provide strong mitigation.')
+
+,(2402, FALSE, 'Moderate', FALSE, FALSE, FALSE, TRUE,
+ 'Fast real-time action combat, dodging, guarding, character switching, and traversal abilities create coordination demand; difficulty settings provide mitigation.')
+
+,(2427, FALSE, 'None', FALSE, FALSE, FALSE, TRUE,
+ 'Conventional action-adventure controls with some brush-based precision demands; combat, exploration, upgrades, and forgiving progression provide mitigation.')
+
 ON CONFLICT (GameID) DO UPDATE SET
     SpecialAccessoryRequired = EXCLUDED.SpecialAccessoryRequired,
     ControlSchemeRisk = EXCLUDED.ControlSchemeRisk,
