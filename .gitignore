@@ -5,10 +5,11 @@ gaias.duckdb
 .env
 __pycache__/
 /logs/
-source/playability_review_queue.csv
-source/playability_review_queue.xlsx
+
 # Generated playability review artifacts
-source/playability_manual_research_queue.csv
-source/playability_review_decisions.csv
-source/playability_review_prefill.csv
-source/playability_review_seed_fragment.sql
+source/playability_review_queue*.csv
+source/playability_review_queue*.xlsx
+source/playability_manual_research_queue*.csv
+source/playability_review_decisions*.csv
+source/playability_review_prefill*.csv
+source/playability_review_seed_fragment*.sql

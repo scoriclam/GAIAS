@@ -16,14 +16,11 @@ SEED_FILE = (
 FRAGMENT_FILE = (
     PROJECT_ROOT
     / "source"
-    / "playability_review_seed_fragment.sql"
+    / "playability_review_seed_fragment_cycle2.sql"
 )
 
 
 def extract_game_id(sql_tuple):
-    """
-    Extract GameID from the first value in a SQL tuple.
-    """
     match = re.match(
         r"\(\s*(\d+)\s*,",
         sql_tuple.strip(),
@@ -38,10 +35,6 @@ def extract_game_id(sql_tuple):
 
 
 def extract_tuples(text):
-    """
-    Extract top-level SQL tuples while respecting quoted strings
-    and escaped SQL apostrophes ('').
-    """
     tuples = []
 
     depth = 0
@@ -103,15 +96,6 @@ def extract_tuples(text):
 
 
 def find_seed_sections(seed_text):
-    """
-    Locate the actual INSERT INTO GamePlayabilityProfile
-    statement and split it into:
-
-      prefix through VALUES
-      tuple data
-      suffix beginning with ON CONFLICT
-    """
-
     insert_match = re.search(
         r"""
         INSERT
@@ -174,11 +158,9 @@ def find_seed_sections(seed_text):
     )
 
     prefix = seed_text[:values_end]
-
     values_body = seed_text[
         values_end:conflict_start
     ]
-
     suffix = seed_text[
         conflict_start:
     ]
@@ -187,10 +169,6 @@ def find_seed_sections(seed_text):
 
 
 def rows_by_game_id(tuples, source_name):
-    """
-    Convert SQL tuples to a dictionary keyed by GameID.
-    Refuse duplicates within the same source.
-    """
     rows = {}
 
     for sql_tuple in tuples:
@@ -305,7 +283,6 @@ def main():
         + suffix.lstrip()
     )
 
-    # Final validation before changing the file.
     _, final_values, _ = (
         find_seed_sections(
             merged_sql
@@ -324,14 +301,6 @@ def main():
     if len(final_rows) != expected_total:
         raise SystemExit(
             "ERROR: Final validation row count failed."
-        )
-
-    if len(final_rows) != len(
-        set(final_rows)
-    ):
-        raise SystemExit(
-            "ERROR: Final seed contains "
-            "duplicate GameIDs."
         )
 
     timestamp = datetime.now().strftime(
@@ -356,27 +325,21 @@ def main():
     print(
         f"Existing seed rows: {len(existing_rows)}"
     )
-
     print(
         f"Fragment rows: {len(new_rows)}"
     )
-
     print(
         f"Overlapping GameIDs: {len(overlap)}"
     )
-
     print(
         f"Final seed rows: {len(final_rows)}"
     )
-
     print(
         f"Unique GameIDs: {len(final_rows)}"
     )
-
     print(
         f"Backup: {backup_file}"
     )
-
     print(
         f"Updated: {SEED_FILE}"
     )

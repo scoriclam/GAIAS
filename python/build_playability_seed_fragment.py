@@ -7,13 +7,13 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 INPUT_CSV = (
     PROJECT_ROOT
     / "source"
-    / "playability_review_decisions.csv"
+    / "playability_review_decisions_cycle2.csv"
 )
 
 OUTPUT_SQL = (
     PROJECT_ROOT
     / "source"
-    / "playability_review_seed_fragment.sql"
+    / "playability_review_seed_fragment_cycle2.sql"
 )
 
 REQUIRED_FIELDS = [
@@ -29,9 +29,6 @@ REQUIRED_FIELDS = [
 
 
 def sql_quote(value):
-    """
-    Escape a Python string for inclusion in a SQL string literal.
-    """
     return "'" + value.replace("'", "''") + "'"
 
 
@@ -147,8 +144,8 @@ def main():
 
     lines = [
         "-- ============================================================",
-        "-- Playability review queue decisions",
-        "-- Generated from source/playability_review_decisions.csv",
+        "-- Playability review queue decisions - Cycle 2",
+        "-- Generated from source/playability_review_decisions_cycle2.csv",
         "-- ============================================================",
         "",
     ]
