@@ -1,20 +1,9 @@
 from pathlib import Path
 import csv
+import sys
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-
-INPUT_CSV = (
-    PROJECT_ROOT
-    / "source"
-    / "playability_review_decisions_cycle2.csv"
-)
-
-OUTPUT_SQL = (
-    PROJECT_ROOT
-    / "source"
-    / "playability_review_seed_fragment_cycle2.sql"
-)
 
 REQUIRED_FIELDS = [
     "GameID",
@@ -26,6 +15,30 @@ REQUIRED_FIELDS = [
     "MitigationAvailable",
     "PlayabilityNotes",
 ]
+
+
+def parse_cycle():
+    if len(sys.argv) != 2:
+        raise SystemExit(
+            "Usage: "
+            "python python/build_playability_seed_fragment.py <cycle_number>"
+        )
+
+    cycle = sys.argv[1].strip()
+
+    if not cycle.isdigit():
+        raise SystemExit(
+            f"ERROR: Cycle must be a positive integer. Received: {cycle}"
+        )
+
+    cycle_number = int(cycle)
+
+    if cycle_number < 1:
+        raise SystemExit(
+            "ERROR: Cycle must be 1 or greater."
+        )
+
+    return cycle_number
 
 
 def sql_quote(value):
@@ -46,8 +59,13 @@ def normalize_bool(value):
     )
 
 
-def load_rows():
-    with INPUT_CSV.open(
+def load_rows(input_csv):
+    if not input_csv.exists():
+        raise SystemExit(
+            f"ERROR: Decision file not found:\n{input_csv}"
+        )
+
+    with input_csv.open(
         "r",
         encoding="utf-8-sig",
         newline="",
@@ -71,7 +89,9 @@ def load_rows():
 
 
 def build_sql_row(row):
-    game_id = int(row["GameID"])
+    game_id = int(
+        row["GameID"]
+    )
 
     control_risk = sql_quote(
         row["ControlSchemeRisk"].strip()
@@ -114,24 +134,46 @@ def build_sql_row(row):
 
 
 def main():
-    rows = load_rows()
+    cycle = parse_cycle()
+
+    input_csv = (
+        PROJECT_ROOT
+        / "source"
+        / f"playability_review_decisions_cycle{cycle}.csv"
+    )
+
+    output_sql = (
+        PROJECT_ROOT
+        / "source"
+        / f"playability_review_seed_fragment_cycle{cycle}.sql"
+    )
+
+    rows = load_rows(
+        input_csv
+    )
 
     game_ids = [
         int(row["GameID"])
         for row in rows
     ]
 
-    duplicates = sorted(
-        {
+    seen = set()
+    duplicates = set()
+
+    for game_id in game_ids:
+        if game_id in seen:
+            duplicates.add(
+                game_id
+            )
+
+        seen.add(
             game_id
-            for game_id in game_ids
-            if game_ids.count(game_id) > 1
-        }
-    )
+        )
 
     if duplicates:
         raise SystemExit(
-            f"ERROR: Duplicate GameIDs found: {duplicates}"
+            "ERROR: Duplicate GameIDs found: "
+            f"{sorted(duplicates)}"
         )
 
     sql_rows = [
@@ -144,25 +186,34 @@ def main():
 
     lines = [
         "-- ============================================================",
-        "-- Playability review queue decisions - Cycle 2",
-        "-- Generated from source/playability_review_decisions_cycle2.csv",
+        f"-- Playability review queue decisions - Cycle {cycle}",
+        (
+            "-- Generated from "
+            f"source/playability_review_decisions_cycle{cycle}.csv"
+        ),
         "-- ============================================================",
         "",
     ]
 
-    for index, sql_row in enumerate(sql_rows):
+    for index, sql_row in enumerate(
+        sql_rows
+    ):
         prefix = "," if index > 0 else ""
+
         lines.append(
             f"{prefix}{sql_row}"
         )
 
-    OUTPUT_SQL.write_text(
+    output_sql.write_text(
         "\n".join(lines) + "\n",
         encoding="utf-8",
     )
 
     print(
-        f"Created: {OUTPUT_SQL}"
+        f"Cycle: {cycle}"
+    )
+    print(
+        f"Created: {output_sql}"
     )
     print(
         f"Rows: {len(sql_rows)}"

@@ -1,6 +1,7 @@
 from pathlib import Path
 import re
 import shutil
+import sys
 from datetime import datetime
 
 
@@ -13,11 +14,29 @@ SEED_FILE = (
     / "seed_GamePlayabilityProfile.sql"
 )
 
-FRAGMENT_FILE = (
-    PROJECT_ROOT
-    / "source"
-    / "playability_review_seed_fragment_cycle2.sql"
-)
+
+def parse_cycle():
+    if len(sys.argv) != 2:
+        raise SystemExit(
+            "Usage: "
+            "python python/merge_playability_seed_fragment.py <cycle_number>"
+        )
+
+    cycle = sys.argv[1].strip()
+
+    if not cycle.isdigit():
+        raise SystemExit(
+            f"ERROR: Cycle must be a positive integer. Received: {cycle}"
+        )
+
+    cycle_number = int(cycle)
+
+    if cycle_number < 1:
+        raise SystemExit(
+            "ERROR: Cycle must be 1 or greater."
+        )
+
+    return cycle_number
 
 
 def extract_game_id(sql_tuple):
@@ -158,9 +177,11 @@ def find_seed_sections(seed_text):
     )
 
     prefix = seed_text[:values_end]
+
     values_body = seed_text[
         values_end:conflict_start
     ]
+
     suffix = seed_text[
         conflict_start:
     ]
@@ -188,21 +209,29 @@ def rows_by_game_id(tuples, source_name):
 
 
 def main():
+    cycle = parse_cycle()
+
+    fragment_file = (
+        PROJECT_ROOT
+        / "source"
+        / f"playability_review_seed_fragment_cycle{cycle}.sql"
+    )
+
     if not SEED_FILE.exists():
         raise SystemExit(
             f"ERROR: Seed file not found:\n{SEED_FILE}"
         )
 
-    if not FRAGMENT_FILE.exists():
+    if not fragment_file.exists():
         raise SystemExit(
-            f"ERROR: Fragment file not found:\n{FRAGMENT_FILE}"
+            f"ERROR: Fragment file not found:\n{fragment_file}"
         )
 
     seed_text = SEED_FILE.read_text(
         encoding="utf-8"
     )
 
-    fragment_text = FRAGMENT_FILE.read_text(
+    fragment_text = fragment_file.read_text(
         encoding="utf-8"
     )
 
@@ -322,6 +351,9 @@ def main():
         encoding="utf-8",
     )
 
+    print(
+        f"Cycle: {cycle}"
+    )
     print(
         f"Existing seed rows: {len(existing_rows)}"
     )
