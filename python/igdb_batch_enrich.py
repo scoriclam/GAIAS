@@ -41,8 +41,8 @@ def main():
         JOIN Platform p
             ON p.PlatformID = ged.PlatformID
         WHERE p.PlatformName IN (
-            'PlayStation 4',
-            'PlayStation 5',
+            'PS4',
+            'PS5',
             'Wii U'
         )
         AND NOT EXISTS (
@@ -51,8 +51,8 @@ def main():
             WHERE s.GAIASGameID = g.GameID
               AND s.SearchPlatform =
                     CASE p.PlatformName
-                        WHEN 'PlayStation 4' THEN 'PS4'
-                        WHEN 'PlayStation 5' THEN 'PS5'
+                        WHEN 'PS4' THEN 'PS4'
+                        WHEN 'PS5' THEN 'PS5'
                         WHEN 'Wii U' THEN 'WIIU'
                     END
         )
@@ -88,16 +88,10 @@ def main():
         ) in rows:
 
             platform_code = {
-                "PlayStation 4": "PS4",
-                "PlayStation 5": "PS5",
+                "PS4": "PS4",
+                "PS5": "PS5",
                 "Wii U": "WIIU",
             }[platform_name]
-
-            log_file.write(
-                f"Processing GameID {game_id}: "
-                f"{title} [{platform_code}] "
-                f"Source={acquisition_source}\n"
-            )
 
             result = matcher.match_game(
                 title=title,
@@ -108,6 +102,12 @@ def main():
 
             status = result["status"]
             status_counts[status] += 1
+
+            log_file.write(
+                f"Processing GameID {game_id}: "
+                f"{title} [{platform_code}] "
+                f"Source={acquisition_source}\n"
+            )
 
             log_file.write(
                 f"Match status: {status}\n"

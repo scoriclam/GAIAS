@@ -8,3 +8,25 @@ GAIASGameID,PlatformCode,IGDBID,IGDBName,OverrideReason
 1568,WIIU,150045,Resident Evil: Revelations,GAIAS Wii U copy corresponds to the 2013 HD console release rather than the original 3DS release lineage
 1215,WIIU,1101,Metroid,GAIAS Wii U copy corresponds to the Western NES/Wii U Virtual Console release lineage rather than the Japanese Famicom Disk System lineage
 1984,WIIU,23514,The Amazing Spider-Man: Ultimate Edition,GAIAS title omits the Wii U Ultimate Edition designation
+21,PS4,131845,A Monster's Expedition,GAIAS title includes an extended parenthetical subtitle not used by IGDB
+52,PS5,358534,The Adventures of Elliot: The Millennium Tales,GAIAS title omits leading The and misspells Millennium
+70,PS5,198385,Alice Gear Aegis CS: Concerto of Simulatrix,GAIAS source title misspells Simulatrix
+87,PS4,131785,Amnesia: Rebirth,GAIAS source title contains a spelling error
+89,PS4,25082,Amnesia: Collection,GAIAS title includes The not used by IGDB
+129,PS4,1970,Assassin's Creed IV Black Flag,GAIAS title uses Arabic 4 while IGDB uses Roman numeral IV
+171,PS5,347639,Atomic Heart II,GAIAS title uses Arabic 2 while IGDB uses Roman numeral II
+189,PS4,124786,Baldur's Gate and Baldur's Gate II: Enhanced Editions,GAIAS title differs in punctuation and singular/plural edition wording
+128,PS4,109532,Assassin's Creed III Remastered,IGDB contains duplicate equivalent records; selected the primary record with the canonical slug
+222,PS4,148499,Behind the Frame: The Finest Scenery,GAIAS title uses the shortened title Behind the Frame
+236,PS4,297231,Beyond the Ice Palace II,GAIAS title uses Arabic 2 while IGDB uses Roman numeral II
+256,PS4,165390,Blasphemous II,GAIAS title uses Arabic 2 while IGDB uses Roman numeral II
+291,PS4,14548,Borderlands: The Handsome Collection,GAIAS title omits the colon and article The
+306,PS4,262651,Broken Sword: Shadow of the Templars Reforged,GAIAS title differs in punctuation and uses singular Templar instead of IGDB Templars
+319,PS4,214486,Bulwark Evolution: Falconeer Chronicles,GAIAS title uses the earlier Bulwark: Falconeer Chronicles naming
+323,PS4,127354,Convergence: A League of Legends Story,GAIAS uses the stylized CONV/RGENCE spelling while IGDB uses Convergence
+358,PS4,109594,Castlevania Requiem: Symphony of the Night & Rondo of Blood,GAIAS uses the shortened Castlevania Requiem title
+409,PS5,347636,Code Vein II,GAIAS title uses Arabic 2 while IGDB uses Roman numeral II
+221,PS4,13391,Bedlam,GAIAS uses the extended marketing title Bedlam: The Game by Christopher Brookmyre while IGDB uses Bedlam
+241,PS4,117984,Black Clover: Quartet Knights Deluxe Edition,IGDB has the exact Deluxe Edition record but does not currently provide platform metadata for it
+263,PS4,323372,Blood Omen 2: Legacy of Kain,GAIAS uses the extended The Legacy of Kain Series wording while IGDB uses Legacy of Kain
+393,PS4,94074,Cities: Skylines - PlayStation 4 Edition,GAIAS uses the base title while IGDB has a specific PlayStation 4 Edition record

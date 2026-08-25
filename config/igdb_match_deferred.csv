@@ -1,0 +1,11 @@
+GAIASGameID,PlatformCode,DeferReason
+8,PS5,No reliable IGDB PS5 match currently available; revisit after external metadata changes
+47,PS5,No reliable IGDB PS5 match currently available; revisit after external metadata changes
+96,PS5,No reliable IGDB PS5 match currently available; revisit after external metadata changes
+244,PS5,IGDB currently has Black Myth: Zhong Kui but no PS5 platform metadata; revisit after external metadata changes
+326,PS4,GAIAS lists Call of Duty 4: Modern Warfare as PS4 but IGDB identifies the original title as PS3; requires source title/platform review before matching
+337,PS4,IGDB currently lists Call of Sentinels only for PC and Nintendo Switch; requires source platform review or later metadata refresh
+380,PS5,IGDB Complete Edition record is currently Nintendo Switch only while the base Chernobylite record supports PS5; defer rather than collapse edition identity
+387,PS5,IGDB currently lists Chronicles: Medieval only for PC; revisit after external platform metadata changes
+392,PS5,IGDB currently lists Cinder City only for PC; revisit after external platform metadata changes
+404,PS5,IGDB currently lists Clockwork Revolution only for Xbox Series and PC; requires source platform review or later metadata refresh

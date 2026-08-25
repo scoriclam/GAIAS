@@ -5,7 +5,7 @@ from igdb_stage_writer import write_match_to_staging
 
 
 DB_PATH = "gaias.duckdb"
-BATCH_SIZE = 20
+BATCH_SIZE = 200
 
 
 def get_games_for_retry():
@@ -33,8 +33,8 @@ def get_games_for_retry():
             JOIN Platform p
                 ON p.PlatformID = ge.PlatformID
             WHERE r.SearchPlatform = CASE p.PlatformName
-                WHEN 'PlayStation 4' THEN 'PS4'
-                WHEN 'PlayStation 5' THEN 'PS5'
+                WHEN 'PS4' THEN 'PS4'
+                WHEN 'PS5' THEN 'PS5'
                 WHEN 'Wii U' THEN 'WIIU'
             END
             ORDER BY r.GAIASGameID
@@ -63,6 +63,7 @@ def main():
         platform_code,
         acquisition_source,
     ) in games:
+
         print(
             f"Retrying GameID {game_id}: "
             f"{game_title} [{platform_code}] "
@@ -78,10 +79,12 @@ def main():
 
         print(f"Match status: {result['status']}")
 
-        if result["match"]:
+        if result.get("match"):
+            match = result["match"]
+
             print(
-                f"IGDB: {result['match']['id']} - "
-                f"{result['match']['name']}"
+                f"IGDB: {match['id']} - "
+                f"{match['name']}"
             )
 
         write_match_to_staging(
