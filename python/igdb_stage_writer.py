@@ -7,14 +7,50 @@ import duckdb
 DB_PATH = "gaias.duckdb"
 
 
+PLATFORM_NAME_MAP = {
+    "PS4": "PlayStation 4",
+    "PS5": "PlayStation 5",
+    "WIIU": "Wii U",
+    "Wii U": "Wii U",
+}
+
+
 def unix_timestamp_to_date(timestamp):
     if timestamp is None:
         return None
 
     return datetime.fromtimestamp(
         timestamp,
-        tz=timezone.utc
+        tz=timezone.utc,
     ).date()
+
+
+def get_platform_release_date(match, search_platform):
+    igdb_platform_name = PLATFORM_NAME_MAP.get(
+        search_platform,
+        search_platform,
+    )
+
+    matching_dates = []
+
+    for release in match.get("release_dates", []):
+        platform = release.get("platform") or {}
+        platform_name = platform.get("name")
+
+        if platform_name != igdb_platform_name:
+            continue
+
+        timestamp = release.get("date")
+
+        if timestamp is not None:
+            matching_dates.append(timestamp)
+
+    if not matching_dates:
+        return None
+
+    return unix_timestamp_to_date(
+        min(matching_dates)
+    )
 
 
 def write_match_to_staging(
@@ -44,14 +80,18 @@ def write_match_to_staging(
 
         perspectives = [
             item["name"]
-            for item in match.get("player_perspectives", [])
+            for item in match.get(
+                "player_perspectives",
+                [],
+            )
         ]
 
         igdb_id = match.get("id")
         igdb_name = match.get("name")
 
-        release_date = unix_timestamp_to_date(
-            match.get("first_release_date")
+        release_date = get_platform_release_date(
+            match,
+            search_platform,
         )
 
         raw_payload = json.dumps(match)

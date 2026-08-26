@@ -100,7 +100,10 @@ class IGDBClient:
             themes.name,
             game_modes.name,
             player_perspectives.name,
-            platforms.name;
+            platforms.name,
+            release_dates.date,
+            release_dates.region,
+            release_dates.platform.name;
         search "{safe_title}";
         limit {limit};
         """
@@ -120,9 +123,38 @@ class IGDBClient:
             themes.name,
             game_modes.name,
             player_perspectives.name,
-            platforms.name;
+            platforms.name,
+            release_dates.date,
+            release_dates.region,
+            release_dates.platform.name;
         where name = "{safe_title}";
         limit {limit};
         """
 
         return self.query_games(query)
+
+    def game_by_id(self, igdb_id):
+        query = f"""
+        fields
+            id,
+            name,
+            first_release_date,
+            category,
+            genres.name,
+            themes.name,
+            game_modes.name,
+            player_perspectives.name,
+            platforms.name,
+            release_dates.date,
+            release_dates.region,
+            release_dates.platform.name;
+        where id = {int(igdb_id)};
+        limit 1;
+        """
+
+        games = self.query_games(query)
+
+        if not games:
+            return None
+
+        return games[0]

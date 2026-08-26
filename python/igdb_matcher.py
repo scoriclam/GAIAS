@@ -367,16 +367,31 @@ class IGDBMatcher:
             override = self.overrides.get(key)
 
             if override:
+                matched_game = self.client.game_by_id(
+                    override["IGDBID"]
+                )
+
+                if matched_game is None:
+                    return {
+                        "status": "OVERRIDE_FETCH_FAILED",
+                        "title": title,
+                        "platform": platform_code,
+                        "match": None,
+                        "candidates": [],
+                        "override_reason": override[
+                            "OverrideReason"
+                        ],
+                    }
+
                 return {
                     "status": "MATCHED_OVERRIDE",
                     "title": title,
                     "platform": platform_code,
-                    "match": {
-                        "id": override["IGDBID"],
-                        "name": override["IGDBName"],
-                    },
-                    "candidates": [],
-                    "override_reason": override["OverrideReason"],
+                    "match": matched_game,
+                    "candidates": [matched_game],
+                    "override_reason": override[
+                        "OverrideReason"
+                    ],
                 }
 
             # Reviewed defer prevents repeated retries for titles
