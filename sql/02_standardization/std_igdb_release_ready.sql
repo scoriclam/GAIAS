@@ -1,4 +1,5 @@
 CREATE OR REPLACE VIEW std_igdb_release_ready AS
+
 WITH latest_result AS (
     SELECT
         GAIASGameID,
@@ -8,10 +9,14 @@ WITH latest_result AS (
         ReleaseDate AS IGDBReleaseDate,
         FetchStatus,
         FetchedAt,
+
         ROW_NUMBER() OVER (
-            PARTITION BY GAIASGameID, SearchPlatform
+            PARTITION BY
+                GAIASGameID,
+                SearchPlatform
             ORDER BY FetchedAt DESC
         ) AS row_num
+
     FROM stg_igdb_game_raw
 ),
 
@@ -23,7 +28,9 @@ latest_success AS (
         IGDBName,
         IGDBReleaseDate,
         FetchStatus
+
     FROM latest_result
+
     WHERE row_num = 1
       AND FetchStatus IN (
           'MATCHED',
@@ -41,14 +48,20 @@ SELECT
     ls.IGDBID,
     ls.IGDBName,
     ls.FetchStatus,
+
     CASE
         WHEN ge.ReleaseDate IS NULL
-             AND ls.IGDBReleaseDate IS NOT NULL
+         AND ls.IGDBReleaseDate IS NOT NULL
             THEN 'READY_TO_FILL'
 
+        WHEN p.PlatformName = 'PS5'
+         AND ge.ReleaseDate < DATE '2020-11-12'
+         AND ls.IGDBReleaseDate >= DATE '2020-11-12'
+            THEN 'READY_TO_REPAIR_INVALID_PS5'
+
         WHEN ge.ReleaseDate IS NOT NULL
-             AND ls.IGDBReleaseDate IS NOT NULL
-             AND ge.ReleaseDate <> ls.IGDBReleaseDate
+         AND ls.IGDBReleaseDate IS NOT NULL
+         AND ge.ReleaseDate <> ls.IGDBReleaseDate
             THEN 'CONFLICT'
 
         WHEN ge.ReleaseDate = ls.IGDBReleaseDate
@@ -59,15 +72,21 @@ SELECT
 
         ELSE 'NO_ACTION'
     END AS ReleaseDateStatus
-FROM latest_success ls
-JOIN Game g
+
+FROM latest_success AS ls
+
+JOIN Game AS g
     ON g.GameID = ls.GAIASGameID
-JOIN GameEdition ge
+
+JOIN GameEdition AS ge
     ON ge.GameID = g.GameID
-JOIN Platform p
+
+JOIN Platform AS p
     ON p.PlatformID = ge.PlatformID
-WHERE ls.SearchPlatform = CASE p.PlatformName
-    WHEN 'PS4' THEN 'PS4'
-    WHEN 'PS5' THEN 'PS5'
-    WHEN 'Wii U' THEN 'WIIU'
-END;
+
+WHERE ls.SearchPlatform =
+    CASE p.PlatformName
+        WHEN 'PS4' THEN 'PS4'
+        WHEN 'PS5' THEN 'PS5'
+        WHEN 'Wii U' THEN 'WIIU'
+    END;

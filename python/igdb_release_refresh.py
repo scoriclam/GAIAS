@@ -12,8 +12,11 @@ DB_PATH = "gaias.duckdb"
 LOG_DIR = Path("logs")
 
 
-def get_missing_release_dates():
-    con = duckdb.connect(DB_PATH, read_only=True)
+def get_release_refresh_candidates():
+    con = duckdb.connect(
+        DB_PATH,
+        read_only=True,
+    )
 
     try:
         rows = con.execute(
@@ -32,19 +35,29 @@ def get_missing_release_dates():
                 ON p.PlatformID = ge.PlatformID
 
             JOIN GameEntitlement ent
-                ON ent.GameEditionID = ge.GameEditionID
+                ON ent.GameEditionID =
+                   ge.GameEditionID
 
             JOIN AcquisitionSource acq
                 ON acq.AcquisitionSourceID =
                    ent.AcquisitionSourceID
 
-            WHERE ge.ReleaseDate IS NULL
+            WHERE
+                (
+                    ge.ReleaseDate IS NULL
+                )
+                OR
+                (
+                    p.PlatformName = 'PS5'
+                    AND ge.ReleaseDate <
+                        DATE '2020-11-12'
+                )
 
-              AND p.PlatformName IN (
-                  'PS4',
-                  'PS5',
-                  'Wii U'
-              )
+            AND p.PlatformName IN (
+                'PS4',
+                'PS5',
+                'Wii U'
+            )
 
             ORDER BY
                 g.GameID,
@@ -59,7 +72,9 @@ def get_missing_release_dates():
 
 
 def main():
-    LOG_DIR.mkdir(exist_ok=True)
+    LOG_DIR.mkdir(
+        exist_ok=True,
+    )
 
     timestamp = datetime.now().strftime(
         "%Y%m%d_%H%M%S"
@@ -72,13 +87,15 @@ def main():
 
     matcher = IGDBMatcher()
 
-    games = get_missing_release_dates()
+    games = get_release_refresh_candidates()
 
     print(
-        f"Missing release-date editions selected: "
+        "Release refresh candidates selected: "
         f"{len(games)}"
     )
-    print(f"Full log: {log_path}")
+    print(
+        f"Full log: {log_path}"
+    )
     print()
 
     status_counts = Counter()
@@ -89,11 +106,15 @@ def main():
     ) as log_file:
 
         log_file.write(
-            "IGDB PLATFORM-SPECIFIC RELEASE REFRESH\n"
+            "IGDB PLATFORM-SPECIFIC "
+            "RELEASE REFRESH\n"
         )
-        log_file.write("=" * 70 + "\n")
         log_file.write(
-            f"Editions selected: {len(games)}\n\n"
+            "=" * 70 + "\n"
+        )
+        log_file.write(
+            f"Candidates selected: "
+            f"{len(games)}\n\n"
         )
 
         for (
@@ -110,7 +131,8 @@ def main():
             }[platform_name]
 
             print(
-                f"Refreshing GameID {game_id}: "
+                f"Refreshing GameID "
+                f"{game_id}: "
                 f"{game_title} "
                 f"[{platform_code}]"
             )
@@ -133,7 +155,8 @@ def main():
             )
 
             log_file.write(
-                f"Match status: {status}\n"
+                f"Match status: "
+                f"{status}\n"
             )
 
             if result.get("match"):
@@ -156,30 +179,46 @@ def main():
                 "-" * 70 + "\n"
             )
 
-        log_file.write("\nSUMMARY\n")
-        log_file.write("=" * 70 + "\n")
+        log_file.write(
+            "\nSUMMARY\n"
+        )
+        log_file.write(
+            "=" * 70 + "\n"
+        )
 
-        for status in sorted(status_counts):
+        for status in sorted(
+            status_counts
+        ):
             log_file.write(
                 f"{status}: "
                 f"{status_counts[status]}\n"
             )
 
         log_file.write(
-            f"Total processed: {len(games)}\n"
+            f"Total processed: "
+            f"{len(games)}\n"
         )
 
     print()
-    print("Refresh summary")
-    print("=" * 50)
+    print(
+        "Release refresh summary"
+    )
+    print(
+        "=" * 50
+    )
 
-    for status in sorted(status_counts):
+    for status in sorted(
+        status_counts
+    ):
         print(
             f"{status}: "
             f"{status_counts[status]}"
         )
 
-    print(f"Total processed: {len(games)}")
+    print(
+        f"Total processed: "
+        f"{len(games)}"
+    )
 
 
 if __name__ == "__main__":
