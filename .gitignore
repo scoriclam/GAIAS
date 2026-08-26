@@ -12,4 +12,5 @@ source/playability_review_queue*.xlsx
 source/playability_manual_research_queue*.csv
 source/playability_review_decisions*.csv
 source/playability_review_prefill*.csv
-source/playability_review_seed_fragment*.sql
+source/playability_review_seed_fragment*.sqlnode_modules/
+/integrations/psn/node_modules/
